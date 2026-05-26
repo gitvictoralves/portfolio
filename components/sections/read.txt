@@ -1,0 +1,29 @@
+Preciso que refaça esse componente de forma premium, como uma versão 3.0 (responsivo, acessivo e premium), reveja os icones e preciso que adicione todas as infos abaixo:
+
+
+```markdown
+**Core (dominante):**
+
+- HTML5 semântico + CSS3 (Flexbox, Grid, Media Queries, responsividade)
+- JavaScript ES6+ (arrow functions, destructuring, async/await, módulos)
+- React.js (componentes funcionais, hooks, props, estado)
+- Git / GitHub (versionamento, branches, pull requests)
+
+**Em aprendizado ativo:**
+
+- TypeScript (tipagem básica, interfaces, tipos utilitários)
+- Next.js (roteamento, SSR, SSG)
+- Tailwind CSS
+- Consumo de REST APIs (fetch, axios)
+- Testes com Jest e Testing Library
+
+**Ferramentas e ambiente:**
+
+- VS Code, GitHub Copilot / Claude (uso de IA no fluxo de desenvolvimento)
+- Figma (leitura e interpretação de layouts)
+- Metodologias ágeis: Scrum / Kanban (noções práticas)
+```
+
+Entretanto se atente, Scrum e Kanban como outras são questões separadas. Axios também.
+
+Use icones reais não de vscodium pra vscode. Se não achar use alternativas como criar com vsg
