@@ -796,7 +796,7 @@ function EmptyPanel() {
       </p>
       <p
         className="mt-0.5 text-[11px]"
-        style={{ color: "var(--color-neutral-600, #26272d)" }}
+        style={{ color: "var(--color-neutral-400, #26272d)" }}
       >
         para ver proficiência e detalhes
       </p>
@@ -862,15 +862,15 @@ function TechRowList({
                 </span>
                 <span
                   className="text-[11px]"
-                  style={{ color: "var(--color-neutral-600, #26272d)" }}
+                  style={{ color: "var(--color-neutral-400, #26272d)" }}
                 >
                   ({items.length})
                 </span>
               </div>
               {isExpanded ? (
-                <ChevronUp size={12} style={{ color: "var(--color-neutral-600, #26272d)" }} />
+                <ChevronUp size={12} style={{ color: "var(--color-neutral-400, #26272d)" }} />
               ) : (
-                <ChevronDown size={12} style={{ color: "var(--color-neutral-600, #26272d)" }} />
+                <ChevronDown size={12} style={{ color: "var(--color-neutral-400, #26272d)" }} />
               )}
             </button>
 
@@ -928,7 +928,7 @@ function TechRowList({
                             style={{
                               color: isActive
                                 ? tech.brandColor
-                                : "var(--color-neutral-600, #26272d)",
+                                : "var(--color-neutral-400, #26272d)",
                             }}
                           >
                             {tech.proficiency}%
@@ -995,7 +995,7 @@ function StatsRow({ techs }: { techs: Tech[] }) {
           </span>
           <span
             className="text-[11px]"
-            style={{ color: "var(--color-neutral-600, #26272d)" }}
+            style={{ color: "var(--color-neutral-400, #26272d)" }}
           >
             {s.label}
           </span>
@@ -1103,7 +1103,7 @@ function Legend({
             </span>
             <span
               className="text-[11px]"
-              style={{ color: "var(--color-neutral-600, #26272d)" }}
+              style={{ color: "var(--color-neutral-400, #26272d)" }}
             >
               ({count})
             </span>

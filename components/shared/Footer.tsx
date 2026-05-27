@@ -308,7 +308,7 @@ export function Footer() {
 
             <span
               aria-hidden="true"
-              style={{ color: 'var(--color-neutral-700)' }}
+              style={{ color: 'var(--color-neutral-500)' }}
               className="text-xs select-none"
             >
               ·

@@ -294,7 +294,7 @@ export function IdentityCard() {
             {/* Status dot */}
             <span
               className="absolute -bottom-0.5 -right-0.5 flex items-center justify-center w-4 h-4 rounded-full"
-              style={{ background: 'var(--color-neutral-800)', border: '1.5px solid var(--color-neutral-700)' }}
+              style={{ background: 'var(--color-neutral-800)', border: '1.5px solid var(--color-neutral-500)' }}
               aria-label="Status: disponível"
             >
               <PulseDot status={STATIC.status} />

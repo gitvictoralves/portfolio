@@ -38,8 +38,8 @@ The system uses a dark-first approach. All colors are defined as CSS custom prop
 --color-neutral-950: #08090a;   /* deepest background */
 --color-neutral-900: #0d0e10;   /* primary background */
 --color-neutral-800: #141518;   /* card surface */
---color-neutral-700: #1c1d21;   /* elevated surface */
---color-neutral-600: #26272d;   /* border / divider */
+--color-neutral-500: #1c1d21;   /* elevated surface */
+--color-neutral-400: #26272d;   /* border / divider */
 --color-neutral-500: #3a3b42;   /* muted border */
 --color-neutral-400: #6b6c75;   /* disabled / placeholder */
 --color-neutral-300: #9a9ba6;   /* secondary text */
