@@ -1,46 +1,46 @@
-'use client'
+"use client";
 
-import { useEffect, useRef, useCallback } from 'react'
-import Image from 'next/image'
+import { useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import {
   motion,
   useMotionValue,
   useSpring,
   useTransform,
   useReducedMotion,
-} from 'motion/react'
-import { ArrowUpRight, MapPin, Code2, Sparkles } from 'lucide-react'
+} from "motion/react";
+import { ArrowUpRight, MapPin, Code2, Sparkles } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────
    Types
 ───────────────────────────────────────────────────────────── */
 
-type EaseArray = [number, number, number, number]
+type EaseArray = [number, number, number, number];
 
 /* ─────────────────────────────────────────────────────────────
    Constants
 ───────────────────────────────────────────────────────────── */
 
-const EASE_OUT: EaseArray = [0.0, 0, 0.2, 1]
-const EASE_SPRING: EaseArray = [0.34, 1.56, 0.64, 1]
+const EASE_OUT: EaseArray = [0.0, 0, 0.2, 1];
+const EASE_SPRING: EaseArray = [0.34, 1.56, 0.64, 1];
 
 /* ─────────────────────────────────────────────────────────────
    Animation variants
 ───────────────────────────────────────────────────────────── */
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
+  hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
+    filter: "blur(0px)",
     transition: {
       duration: 0.65,
       ease: EASE_OUT,
       delay,
     },
   }),
-}
+};
 
 const scaleIn = {
   hidden: { opacity: 0, scale: 0.92 },
@@ -49,68 +49,68 @@ const scaleIn = {
     scale: 1,
     transition: { duration: 0.5, ease: EASE_SPRING, delay },
   }),
-}
+};
 
 const staggerContainer = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.09, delayChildren: 0.25 },
   },
-}
+};
 
 const wordVariant = {
   hidden: {
     opacity: 0,
     y: 28,
     rotateX: -18,
-    filter: 'blur(6px)',
+    filter: "blur(6px)",
   },
   visible: {
     opacity: 1,
     y: 0,
     rotateX: 0,
-    filter: 'blur(0px)',
+    filter: "blur(0px)",
     transition: {
       duration: 0.6,
       ease: EASE_OUT,
     },
   },
-}
+};
 
 /* ─────────────────────────────────────────────────────────────
    Spotlight — mouse-reactive radial gradient
 ───────────────────────────────────────────────────────────── */
 
 function Spotlight() {
-  const shouldReduceMotion = useReducedMotion()
+  const shouldReduceMotion = useReducedMotion();
   const mouseX = useMotionValue(
-    typeof window !== 'undefined' ? window.innerWidth / 2 : 0,
-  )
+    typeof window !== "undefined" ? window.innerWidth / 2 : 0,
+  );
   const mouseY = useMotionValue(
-    typeof window !== 'undefined' ? window.innerHeight / 2 : 0,
-  )
+    typeof window !== "undefined" ? window.innerHeight / 2 : 0,
+  );
 
-  const springX = useSpring(mouseX, { stiffness: 60, damping: 22 })
-  const springY = useSpring(mouseY, { stiffness: 60, damping: 22 })
+  const springX = useSpring(mouseX, { stiffness: 60, damping: 22 });
+  const springY = useSpring(mouseY, { stiffness: 60, damping: 22 });
 
-  const bgX = useTransform(springX, (v) => `${v}px`)
-  const bgY = useTransform(springY, (v) => `${v}px`)
+  const bgX = useTransform(springX, (v) => `${v}px`);
+  const bgY = useTransform(springY, (v) => `${v}px`);
 
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
-      mouseX.set(e.clientX)
-      mouseY.set(e.clientY)
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     },
     [mouseX, mouseY],
-  )
+  );
 
   useEffect(() => {
-    if (shouldReduceMotion) return
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [shouldReduceMotion, handleMouseMove])
+    if (shouldReduceMotion) return;
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [shouldReduceMotion, handleMouseMove]);
 
-  if (shouldReduceMotion) return null
+  if (shouldReduceMotion) return null;
 
   return (
     <motion.div
@@ -123,17 +123,17 @@ function Spotlight() {
         style={{
           width: 900,
           height: 900,
-          borderRadius: '50%',
+          borderRadius: "50%",
           background:
-            'radial-gradient(circle, rgb(79 53 214 / 0.08) 0%, transparent 65%)',
+            "radial-gradient(circle, rgb(79 53 214 / 0.08) 0%, transparent 65%)",
           x: bgX,
           y: bgY,
-          translateX: '-50%',
-          translateY: '-50%',
+          translateX: "-50%",
+          translateY: "-50%",
         }}
       />
     </motion.div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -147,11 +147,11 @@ function NoiseOverlay() {
       className="pointer-events-none fixed inset-0 -z-10 opacity-[0.025]"
       style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        backgroundRepeat: 'repeat',
-        backgroundSize: '128px 128px',
+        backgroundRepeat: "repeat",
+        backgroundSize: "128px 128px",
       }}
     />
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -159,10 +159,10 @@ function NoiseOverlay() {
 ───────────────────────────────────────────────────────────── */
 
 function HeroGridLines() {
-  const shouldReduceMotion = useReducedMotion()
+  const shouldReduceMotion = useReducedMotion();
 
-  const lines = [15, 45, 75]
-  const vertLines = ['8%', '92%']
+  const lines = [15, 45, 75];
+  const vertLines = ["8%", "92%"];
 
   return (
     <div
@@ -210,13 +210,13 @@ function HeroGridLines() {
         }
         className="absolute top-0 bottom-0 w-px origin-top"
         style={{
-          left: '14%',
+          left: "14%",
           background:
-            'linear-gradient(to bottom, transparent 0%, rgb(79 53 214 / 0.15) 40%, rgb(122 98 232 / 0.08) 80%, transparent 100%)',
+            "linear-gradient(to bottom, transparent 0%, rgb(79 53 214 / 0.15) 40%, rgb(122 98 232 / 0.08) 80%, transparent 100%)",
         }}
       />
     </div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -232,34 +232,36 @@ function IdeBreadcrumb() {
       className="mb-7 flex items-center gap-1.5 font-mono text-[11px] tracking-wide"
       aria-hidden="true"
     >
-      <span style={{ color: 'var(--color-accent-500)' }}>export default</span>
-      <span style={{ color: 'var(--color-accent-400)' }}>function</span>
-      <span style={{ color: 'var(--color-neutral-300)' }}>HeroSection</span>
-      <span style={{ color: 'var(--color-neutral-500)' }}>()</span>
-      <span style={{ color: 'var(--color-neutral-400)', margin: '0 4px' }}>/</span>
-      <span style={{ color: 'var(--color-neutral-400)' }}>hero.tsx:1</span>
+      <span style={{ color: "var(--color-accent-500)" }}>export default</span>
+      <span style={{ color: "var(--color-accent-400)" }}>function</span>
+      <span style={{ color: "var(--color-neutral-300)" }}>HeroSection</span>
+      <span style={{ color: "var(--color-neutral-500)" }}>()</span>
+      <span style={{ color: "var(--color-neutral-400)", margin: "0 4px" }}>
+        /
+      </span>
+      <span style={{ color: "var(--color-neutral-400)" }}>hero.tsx:1</span>
     </motion.div>
-  )
+  );
 }
 
 function BlinkingCursor() {
   return (
     <motion.span
       className="relative top-[-0.04em] ml-1.5 inline-block h-[0.78em] w-[3px] rounded-sm align-middle"
-      style={{ background: 'var(--color-accent-400)' }}
+      style={{ background: "var(--color-accent-400)" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: [0, 0, 1, 1, 0] }}
       transition={{
         duration: 0.85,
         repeat: Infinity,
         repeatDelay: 0,
-        ease: 'steps(1)',
+        ease: "linear",
         delay: 1.5,
         times: [0, 0.5, 0.5, 1, 1],
       }}
       aria-hidden="true"
     />
-  )
+  );
 }
 
 function StringToken({ word }: { word: string }) {
@@ -267,15 +269,15 @@ function StringToken({ word }: { word: string }) {
     <motion.span
       variants={wordVariant}
       className="relative inline-block"
-      style={{ transformOrigin: 'bottom center' }}
+      style={{ transformOrigin: "bottom center" }}
     >
       {/* token background pill — fades in after word lands */}
       <motion.span
         className="absolute rounded-md"
         style={{
-          inset: '-2px -10px',
-          background: 'rgb(79 53 214 / 0.08)',
-          border: '1px solid rgb(79 53 214 / 0.18)',
+          inset: "-2px -10px",
+          background: "rgb(79 53 214 / 0.08)",
+          border: "1px solid rgb(79 53 214 / 0.18)",
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -287,13 +289,13 @@ function StringToken({ word }: { word: string }) {
       <motion.span
         className="relative z-10 font-mono"
         style={{
-          fontSize: '0.58em',
-          color: 'var(--color-accent-500)',
+          fontSize: "0.58em",
+          color: "var(--color-accent-500)",
           lineHeight: 0,
           marginRight: 3,
-          verticalAlign: 'super',
-          position: 'relative',
-          top: '0.18em',
+          verticalAlign: "super",
+          position: "relative",
+          top: "0.18em",
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -310,13 +312,13 @@ function StringToken({ word }: { word: string }) {
       <motion.span
         className="relative z-10 font-mono"
         style={{
-          fontSize: '0.58em',
-          color: 'var(--color-accent-500)',
+          fontSize: "0.58em",
+          color: "var(--color-accent-500)",
           lineHeight: 0,
           marginLeft: 3,
-          verticalAlign: 'super',
-          position: 'relative',
-          top: '0.18em',
+          verticalAlign: "super",
+          position: "relative",
+          top: "0.18em",
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -331,8 +333,8 @@ function StringToken({ word }: { word: string }) {
         className="absolute bottom-0 left-0 right-0 h-px rounded-full"
         style={{
           background:
-            'linear-gradient(90deg, var(--color-accent-500), var(--color-accent-300))',
-          transformOrigin: 'left center',
+            "linear-gradient(90deg, var(--color-accent-500), var(--color-accent-300))",
+          transformOrigin: "left center",
         }}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
@@ -340,7 +342,7 @@ function StringToken({ word }: { word: string }) {
         aria-hidden="true"
       />
     </motion.span>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -348,11 +350,11 @@ function StringToken({ word }: { word: string }) {
 ───────────────────────────────────────────────────────────── */
 
 function AnimatedHeadline() {
-  const shouldReduceMotion = useReducedMotion()
+  const shouldReduceMotion = useReducedMotion();
 
   const headlineStyle: React.CSSProperties = {
-    fontSize: 'clamp(38px, 5.5vw, 72px)',
-  }
+    fontSize: "clamp(38px, 5.5vw, 72px)",
+  };
 
   if (shouldReduceMotion) {
     return (
@@ -371,23 +373,21 @@ function AnimatedHeadline() {
             <span className="text-gradient">código que dura.</span>
             <span
               className="ml-1.5 inline-block h-[0.78em] w-[3px] rounded-sm align-middle"
-              style={{ background: 'var(--color-accent-400)' }}
+              style={{ background: "var(--color-accent-400)" }}
               aria-hidden="true"
             />
           </span>
         </h1>
       </div>
-    )
+    );
   }
 
   return (
-    <div className="mb-6" style={{ perspective: '1400px' }}>
+    <div className="mb-6" style={{ perspective: "1400px" }}>
       <IdeBreadcrumb />
 
       {/* accessible label for screen readers */}
-      <span className="sr-only">
-        Interfaces que encantam, código que dura.
-      </span>
+      <span className="sr-only">Interfaces que encantam, código que dura.</span>
 
       <motion.div
         variants={staggerContainer}
@@ -401,12 +401,12 @@ function AnimatedHeadline() {
       >
         {/* Line 1 — identifier tokens */}
         <div className="mb-[0.04em] flex flex-wrap gap-x-[0.25em]">
-          {['Interfaces', 'que'].map((word, i) => (
+          {["Interfaces", "que"].map((word, i) => (
             <motion.span
               key={i}
               variants={wordVariant}
               className="text-gradient inline-block"
-              style={{ transformOrigin: 'bottom center' }}
+              style={{ transformOrigin: "bottom center" }}
             >
               {word}
             </motion.span>
@@ -420,12 +420,12 @@ function AnimatedHeadline() {
 
         {/* Line 3 — identifier tokens + blinking cursor */}
         <div className="flex flex-wrap items-center gap-x-[0.25em]">
-          {['código', 'que', 'dura.'].map((word, i) => (
+          {["código", "que", "dura."].map((word, i) => (
             <motion.span
               key={i}
               variants={wordVariant}
               className="text-gradient inline-block"
-              style={{ transformOrigin: 'bottom center' }}
+              style={{ transformOrigin: "bottom center" }}
             >
               {word}
             </motion.span>
@@ -445,20 +445,20 @@ function AnimatedHeadline() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 0.4 }}
         className="mt-6 font-mono text-xs"
-        style={{ color: 'var(--color-neutral-400)' }}
+        style={{ color: "var(--color-neutral-400)" }}
         aria-hidden="true"
       >
-        {'}'}
+        {"}"}
       </motion.div>
     </div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
    Stack pills row
 ───────────────────────────────────────────────────────────── */
 
-const STACK = ['React', 'TypeScript', 'Next.js', 'Tailwind']
+const STACK = ["React", "TypeScript", "Next.js", "Tailwind"];
 
 function StackPills() {
   return (
@@ -482,7 +482,7 @@ function StackPills() {
         </span>
       ))}
     </motion.div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -535,7 +535,7 @@ function CTAButtons() {
         Entrar em contato
       </a>
     </motion.div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -556,7 +556,10 @@ function MetaStrip() {
         Salvador, BA — Remoto
       </span>
 
-      <span aria-hidden="true" className="text-[var(--color-neutral-400)] text-xs select-none">
+      <span
+        aria-hidden="true"
+        className="text-[var(--color-neutral-400)] text-xs select-none"
+      >
         ·
       </span>
 
@@ -565,7 +568,10 @@ function MetaStrip() {
         Frontend Developer · Júnior
       </span>
 
-      <span aria-hidden="true" className="text-[var(--color-neutral-400)] text-xs select-none">
+      <span
+        aria-hidden="true"
+        className="text-[var(--color-neutral-400)] text-xs select-none"
+      >
         ·
       </span>
 
@@ -574,7 +580,7 @@ function MetaStrip() {
         Inglês B1 · TOEFL 520
       </span>
     </motion.div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -582,7 +588,7 @@ function MetaStrip() {
 ───────────────────────────────────────────────────────────── */
 
 function ScrollIndicator() {
-  const shouldReduceMotion = useReducedMotion()
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
@@ -603,11 +609,11 @@ function ScrollIndicator() {
             ? {}
             : { scaleY: [1, 0.6, 1], opacity: [0.5, 1, 0.5] }
         }
-        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         className="w-px h-8 bg-gradient-to-b from-[var(--color-neutral-500)] to-transparent origin-top"
       />
     </motion.div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -615,37 +621,37 @@ function ScrollIndicator() {
 ───────────────────────────────────────────────────────────── */
 
 function HeroPhoto() {
-  const shouldReduceMotion = useReducedMotion()
+  const shouldReduceMotion = useReducedMotion();
 
-  const cardRef = useRef<HTMLDivElement>(null)
-  const rotateX = useMotionValue(0)
-  const rotateY = useMotionValue(0)
+  const cardRef = useRef<HTMLDivElement>(null);
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
 
-  const springConfig = { stiffness: 120, damping: 20 }
-  const springRotX = useSpring(rotateX, springConfig)
-  const springRotY = useSpring(rotateY, springConfig)
+  const springConfig = { stiffness: 120, damping: 20 };
+  const springRotX = useSpring(rotateX, springConfig);
+  const springRotY = useSpring(rotateY, springConfig);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (shouldReduceMotion || !cardRef.current) return
-      const rect = cardRef.current.getBoundingClientRect()
-      const x = (e.clientX - rect.left) / rect.width - 0.5
-      const y = (e.clientY - rect.top) / rect.height - 0.5
-      rotateX.set(y * -10)
-      rotateY.set(x * 10)
+      if (shouldReduceMotion || !cardRef.current) return;
+      const rect = cardRef.current.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      rotateX.set(y * -10);
+      rotateY.set(x * 10);
     },
     [rotateX, rotateY, shouldReduceMotion],
-  )
+  );
 
   const handleMouseLeave = useCallback(() => {
-    rotateX.set(0)
-    rotateY.set(0)
-  }, [rotateX, rotateY])
+    rotateX.set(0);
+    rotateY.set(0);
+  }, [rotateX, rotateY]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 40, filter: 'blur(8px)' }}
-      animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+      initial={{ opacity: 0, x: 40, filter: "blur(8px)" }}
+      animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
       transition={
         shouldReduceMotion
           ? { duration: 0 }
@@ -659,7 +665,7 @@ function HeroPhoto() {
         className="absolute inset-0 -z-10 blur-3xl"
         style={{
           background:
-            'radial-gradient(ellipse 70% 60% at 50% 60%, rgb(79 53 214 / 0.18) 0%, transparent 70%)',
+            "radial-gradient(ellipse 70% 60% at 50% 60%, rgb(79 53 214 / 0.18) 0%, transparent 70%)",
         }}
       />
 
@@ -668,12 +674,12 @@ function HeroPhoto() {
         ref={cardRef}
         style={
           shouldReduceMotion
-            ? { perspective: '1000px' }
+            ? { perspective: "1000px" }
             : {
                 rotateX: springRotX,
                 rotateY: springRotY,
-                transformStyle: 'preserve-3d',
-                perspective: '1000px',
+                transformStyle: "preserve-3d",
+                perspective: "1000px",
               }
         }
         onMouseMove={handleMouseMove}
@@ -684,10 +690,10 @@ function HeroPhoto() {
         <div
           className="relative rounded-2xl overflow-hidden"
           style={{
-            width: 'min(360px, 36vw)',
-            aspectRatio: '3 / 4',
+            width: "min(360px, 36vw)",
+            aspectRatio: "3 / 4",
             boxShadow:
-              '0 0 0 1px rgb(255 255 255 / 0.07), 0 40px 80px rgb(0 0 0 / 0.55), var(--glow-accent)',
+              "0 0 0 1px rgb(255 255 255 / 0.07), 0 40px 80px rgb(0 0 0 / 0.55), var(--glow-accent)",
           }}
         >
           {/* Top accent line */}
@@ -695,7 +701,7 @@ function HeroPhoto() {
             className="absolute top-0 left-0 right-0 h-px z-20"
             style={{
               background:
-                'linear-gradient(90deg, transparent 0%, rgb(122 98 232 / 0.7) 50%, transparent 100%)',
+                "linear-gradient(90deg, transparent 0%, rgb(122 98 232 / 0.7) 50%, transparent 100%)",
             }}
           />
 
@@ -720,7 +726,7 @@ function HeroPhoto() {
             className="absolute inset-0 z-10"
             style={{
               background:
-                'linear-gradient(to bottom, rgb(0 0 0 / 0) 55%, var(--color-neutral-900) 100%)',
+                "linear-gradient(to bottom, rgb(0 0 0 / 0) 55%, var(--color-neutral-900) 100%)",
             }}
           />
 
@@ -728,7 +734,7 @@ function HeroPhoto() {
           <div
             className="absolute inset-0 z-10 rounded-2xl"
             style={{
-              boxShadow: 'inset 0 1px 0 rgb(255 255 255 / 0.08)',
+              boxShadow: "inset 0 1px 0 rgb(255 255 255 / 0.08)",
             }}
           />
         </div>
@@ -744,8 +750,8 @@ function HeroPhoto() {
           }
           className="absolute -bottom-4 -left-8 glass-2 rounded-xl px-4 py-3 flex items-center gap-3 z-30"
           style={{
-            border: '1px solid rgb(255 255 255 / 0.09)',
-            boxShadow: '0 8px 32px rgb(0 0 0 / 0.3)',
+            border: "1px solid rgb(255 255 255 / 0.09)",
+            boxShadow: "0 8px 32px rgb(0 0 0 / 0.3)",
           }}
         >
           {/* Initials avatar */}
@@ -753,9 +759,9 @@ function HeroPhoto() {
             className="flex h-9 w-9 items-center justify-center rounded-lg text-sm font-semibold shrink-0 select-none"
             style={{
               background:
-                'linear-gradient(135deg, var(--color-accent-700), var(--color-accent-500))',
-              color: 'var(--color-accent-100)',
-              boxShadow: 'inset 0 1px 0 rgb(255 255 255 / 0.15)',
+                "linear-gradient(135deg, var(--color-accent-700), var(--color-accent-500))",
+              color: "var(--color-accent-100)",
+              boxShadow: "inset 0 1px 0 rgb(255 255 255 / 0.15)",
             }}
           >
             VA
@@ -778,7 +784,7 @@ function HeroPhoto() {
         </motion.div>
       </motion.div>
     </motion.div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -800,14 +806,14 @@ function MobilePhoto() {
         style={{
           width: 96,
           height: 96,
-          boxShadow: '0 0 0 1px rgb(255 255 255 / 0.10), var(--glow-accent)',
+          boxShadow: "0 0 0 1px rgb(255 255 255 / 0.10), var(--glow-accent)",
         }}
       >
         <div
           className="absolute top-0 left-0 right-0 h-px z-10"
           style={{
             background:
-              'linear-gradient(90deg, transparent, rgb(122 98 232 / 0.7), transparent)',
+              "linear-gradient(90deg, transparent, rgb(122 98 232 / 0.7), transparent)",
           }}
         />
         <Image
@@ -820,7 +826,7 @@ function MobilePhoto() {
         />
       </div>
     </motion.div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -850,7 +856,6 @@ export function HeroSection() {
       {/* ── Main content ─────────────────────────────────────────── */}
       <div className="container mx-auto max-w-screen-xl px-6 pt-28 pb-36 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center">
-
           {/* ── Left column ─────────────────────────────────────── */}
           <div className="max-w-2xl">
             {/* Mobile avatar */}
@@ -867,8 +872,8 @@ export function HeroSection() {
               animate="visible"
               className="text-[var(--color-neutral-300)] text-lg leading-relaxed max-w-lg"
             >
-              Desenvolvedor Front-end focado em experiências premium, acessíveis e
-              orientadas ao produto. Da ideia ao deploy, cada detalhe importa.
+              Desenvolvedor Front-end focado em experiências premium, acessíveis
+              e orientadas ao produto. Da ideia ao deploy, cada detalhe importa.
             </motion.p>
 
             {/* Stack pills */}
@@ -895,9 +900,9 @@ export function HeroSection() {
         className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 -z-10"
         style={{
           background:
-            'linear-gradient(to top, var(--color-neutral-900), transparent)',
+            "linear-gradient(to top, var(--color-neutral-900), transparent)",
         }}
       />
     </section>
-  )
+  );
 }
