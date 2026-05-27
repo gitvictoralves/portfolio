@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default:  'Victor Alves — Frontend Developer',
-    template: '%s | Victor Alves',
+    default:  'Frontend Developer | Victor M.S.S. Alves ',
+    template: '%s | Victor M.S.S. Alves ',
   },
 
   description:
@@ -51,15 +51,15 @@ export const metadata: Metadata = {
   openGraph: {
     type:        'website',
     url:         SITE_URL,
-    siteName:    'Victor Alves',
-    title:       'Victor Alves — Frontend Developer',
+    siteName:    'Victor M.S.S. Alves',
+    title:       'Frontend Developer | Victor M.S.S. Alves ',
     description: 'Frontend Developer especializado em interfaces premium, acessíveis e orientadas ao produto.',
     images: [
       {
         url:    '/og-image.png',
         width:  1200,
         height: 630,
-        alt:    'Victor Alves — Frontend Developer',
+        alt:    'Frontend Developer | Victor M.S.S. Alves ',
       },
     ],
     locale: 'pt_BR',
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   /* Twitter / X */
   twitter: {
     card:        'summary_large_image',
-    title:       'Victor Alves — Frontend Developer',
+    title:       'Frontend Developer | Victor M.S.S. Alves ',
     description: 'Frontend Developer especializado em interfaces premium, acessíveis e orientadas ao produto.',
     images:      ['/og-image.png'],
     creator:     HANDLE,

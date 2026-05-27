@@ -124,7 +124,7 @@ function Logo({ onClick, hue }: { onClick: () => void; hue: number }) {
         e.preventDefault()
         onClick()
       }}
-      aria-label="Voltar ao topo — Victor Alves"
+      aria-label="Voltar ao topo — Victor M.S.S. Alves"
       className="group flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-400)]"
     >
       {/* Monogram — clean, sem scanner */}
@@ -170,7 +170,7 @@ function Logo({ onClick, hue }: { onClick: () => void; hue: number }) {
           className="text-sm font-semibold"
           style={{ color: 'var(--color-neutral-100)' }}
         >
-          Victor Alves
+          Victor M.S.S. Alves
         </span>
       </span>
     </a>

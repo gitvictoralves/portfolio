@@ -111,7 +111,7 @@ export function Footer() {
               <p
                 className="text-gradient text-2xl font-semibold leading-tight tracking-tight"
               >
-                Victor M. S. S. Alves
+                Victor M.S.S. Alves
               </p>
               <p
                 className="mt-1 text-sm"
@@ -276,7 +276,7 @@ export function Footer() {
             className="flex items-center gap-1.5 text-xs"
             style={{ color: 'var(--color-neutral-400)' }}
           >
-            {year} Victor Alves — Feito com
+            {year} Victor M.S.S. Alves  — Feito com
             <Heart
               size={11}
               strokeWidth={1.5}

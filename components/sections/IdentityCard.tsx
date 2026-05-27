@@ -33,7 +33,7 @@ interface IdentityCardData {
 ───────────────────────────────────────────────────────────── */
 
 const STATIC = {
-  name: 'Victor M. S. S. Alves',
+  name: 'Victor M.S.S. Alves',
   role: 'Frontend Engineer',
   location: 'Salvador, Bahia — BR',
   focus: 'Interfaces responsivas, acessibilidade e performance.',
@@ -254,7 +254,7 @@ export function IdentityCard() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
       className="glass-3 relative rounded-2xl overflow-hidden max-w-md w-full"
-      aria-label="Cartão de identidade — Victor Alves"
+      aria-label="Cartão de identidade — Victor M.S.S. Alves"
     >
       {/* Spotlight overlay */}
       <motion.div
@@ -305,7 +305,7 @@ export function IdentityCard() {
           <div className="flex-1 min-w-0">
             <h3
               className="text-gradient text-xl font-semibold leading-tight truncate"
-              aria-label="Victor Alves"
+              aria-label="Victor M.S.S. Alves"
             >
               {STATIC.name}
             </h3>
@@ -369,17 +369,17 @@ export function IdentityCard() {
             <SocialLink
               href={`https://${STATIC.github}`}
               icon={GitBranch}
-              label="GitHub de Victor Alves"
+              label="GitHub de Victor M.S.S. Alves"
             />
             <SocialLink
               href={`https://${STATIC.linkedin}`}
               icon={ExternalLink}
-              label="LinkedIn de Victor Alves"
+              label="LinkedIn de Victor M.S.S. Alves"
             />
             <SocialLink
               href={`mailto:${STATIC.email}`}
               icon={Mail}
-              label="Enviar e-mail para Victor Alves"
+              label="Enviar e-mail para Victor M.S.S. Alves"
             />
           </div>
         </div>

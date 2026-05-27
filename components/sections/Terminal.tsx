@@ -92,7 +92,7 @@ const SUGGESTIONS = [
 const WELCOME: TerminalMessage = {
   id: 'welcome',
   role: 'system',
-  content: `Bem-vindo ao terminal de Victor Alves.
+  content: `Bem-vindo ao terminal de Victor M.S.S. Alves.
 Digite "help" para ver os comandos disponíveis, ou faça qualquer pergunta — a IA responde em primeira pessoa.`,
 }
 

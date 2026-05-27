@@ -768,7 +768,7 @@ function HeroPhoto() {
           </span>
           <div className="leading-tight">
             <p className="text-xs font-medium text-[var(--color-neutral-100)]">
-              Victor Alves
+              Victor M.S.S. Alves
             </p>
             <p className="text-[11px] text-[var(--color-neutral-400)]">
               Frontend Developer
@@ -818,7 +818,7 @@ function MobilePhoto() {
         />
         <Image
           src="/photo.webp"
-          alt="Victor Alves"
+          alt="Victor M.S.S. Alves"
           fill
           priority
           quality={85}
@@ -838,7 +838,7 @@ export function HeroSection() {
     <section
       data-section="hero"
       className="ambient-bg relative flex min-h-svh items-center overflow-hidden"
-      aria-label="Seção principal — apresentação de Victor Alves"
+      aria-label="Seção principal — apresentação de Victor M.S.S. Alves"
     >
       {/* Global effects */}
       <Spotlight />
