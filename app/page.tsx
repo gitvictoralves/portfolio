@@ -6,24 +6,13 @@ import { TechOrbit } from "@/components/sections/TechOrbit";
 import { Timeline } from "@/components/sections/Timeline";
 import { ProjectsGalaxy } from "@/components/sections/ProjectsGalaxy";
 //import { Terminal } from "@/components/sections/Terminal";
-import { Dashboard } from "@/components/sections/Dashboard";
 import { Footer } from "@/components/shared/Footer";
 //import { RecruiterModeProvider } from "@/modes/RecruiterModeProvider";
 //import { RecruiterModeToggle } from "@/modes/RecruiterModeToggle";
 import { IdentityComplement } from "@/components/sections/IndetityComplement";
 import { DashboardServer } from "@/components/sections/DashboardServer";
-
-// ISR — revalida a cada 60 segundos (GitHub + Cal.com)
-export const revalidate = 60;
-async function getDashboardData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/github`, {
-    next: { revalidate: 60 },
-  });
-  return res.ok ? res.json() : null;
-}
-
 // Dentro do JSX de Home():
-const githubData = await getDashboardData();
+
 export default function Home() {
   return (
     <>
