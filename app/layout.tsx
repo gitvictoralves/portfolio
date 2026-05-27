@@ -11,7 +11,8 @@ import './globals.css'
    Constants
 ───────────────────────────────────────────────────────────── */
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://victormssalves.com'
+const RAW_URL  = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://victormssalves.com'
+const SITE_URL = RAW_URL.startsWith('http') ? RAW_URL : `https://${RAW_URL}`
 const AUTHOR   = 'Victor Manoel Soares Silva Alves'
 const HANDLE   = '@victormssalves'
 
