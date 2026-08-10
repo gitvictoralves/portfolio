@@ -62,13 +62,13 @@ const STRENGTHS = [
     icon: Code2,
     title: "Código que comunica",
     description:
-      "Escrevo componentes que outros devs entendem na primeira leitura — nomenclatura intencional, tipagem estrita, sem mágica desnecessária.",
+      "Escrevo componentes que outros devs entendem na primeira leitura, nomenclatura intencional, tipagem estrita, sem mágica desnecessária.",
   },
   {
     icon: Layers,
     title: "Design thinking técnico",
     description:
-      "Venho do atendimento ao público. Traduzo necessidades reais em interfaces que as pessoas realmente usam — com empatia e precisão.",
+      "Venho do atendimento ao público. Traduzo necessidades reais em interfaces que as pessoas realmente usam, com empatia e precisão.",
   },
   {
     icon: CalendarCheck,
