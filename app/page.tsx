@@ -69,7 +69,7 @@ export default function Home() {
             <SectionHeader
               eyebrow="Stack"
               title="Ecossistema técnico"
-              description="Tecnologias com as quais trabalho, aprendo e experimento — organizadas por proficiência e contexto de uso."
+              description="Tecnologias com as quais trabalho, aprendo e experimento, organizadas por proficiência e contexto de uso."
             />
             <TechOrbit />
           </div>
@@ -86,7 +86,7 @@ export default function Home() {
             <SectionHeader
               eyebrow="Trajetória"
               title="Experiência & Formação"
-              description="Uma jornada de atendimento ao público para engenharia de interfaces — cada etapa moldou como penso sobre pessoas e sistemas."
+              description="Uma jornada de atendimento ao público para engenharia de interfaces, cada etapa moldou como penso sobre pessoas e sistemas."
             />
           </div>
           <Timeline />
