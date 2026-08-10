@@ -28,7 +28,7 @@ const NAV_LINKS: NavLink[] = [
   { label: 'Stack',      href: '#orbit',     section: 'orbit',     hue: 210 },
   { label: 'Trajetória', href: '#timeline',  section: 'timeline',  hue: 180 },
   { label: 'Projetos',   href: '#projects',  section: 'projects',  hue: 250 },
-  { label: 'Dashboard',  href: '#dashboard', section: 'dashboard', hue: 200 },
+  //{ label: 'Dashboard',  href: '#dashboard', section: 'dashboard', hue: 200 },
 ]
 
 const HERO_HUE = 240

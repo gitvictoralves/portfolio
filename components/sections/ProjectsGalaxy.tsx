@@ -105,6 +105,119 @@ const PROJECTS: Project[] = [
     ],
     year: '2026',
   },
+    {
+    id: 'instituto-convergir',
+    title: 'Instituto Convergir',
+    tagline: 'Transformação social através da educação, cultura e esporte',
+    description:
+      'Site institucional do Instituto Convergir: uma plataforma moderna, acessível e humanizada que apresenta os projetos, ações e a missão do instituto, conectando pessoas, ideias e oportunidades por meio da educação, cultura, esporte e desenvolvimento humano.',
+    status: 'live',
+    size: 'featured',
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Radix UI', 'shadcn/ui', 'Framer Motion'],
+    tags: ['Institucional', 'ONG', 'Acessibilidade'],
+    previewColor:
+  'linear-gradient(135deg, #0a0a0a 0%, #14532d 45%, #1a6b3f 70%, #d4a72c 100%)',
+    githubUrl: 'https://github.com/gitvictoralves/instituto-convergir',
+    liveUrl: 'https://instituto-convergir.vercel.app/',
+    previewImage: '/assets/imgs/institutoconvergir.png',
+    highlights: [
+      'Oficinas de Artes Cirquenses, Plásticas, Percussão e Leitura',
+      'Projetos esportivos: futebol, Jiu-Jitsu, boxe e capoeira',
+      'Cursinho Popular Orunmilá, preparação para vestibulares',
+      'Página de missão, impacto social e formas de apoiar',
+    ],
+    metrics: [
+      { label: 'Localização', value: 'Salvador, BA' },
+      { label: 'Projetos', value: '8+' },
+      { label: 'Stack', value: 'Next.js' },
+    ],
+    year: '2026',
+  },
+  {
+    id: 'happymakeup',
+    title: 'Happy Makeup',
+    tagline: 'Meu primeiro projeto profissional',
+    description:
+      'Sistema de controle de estoque para a Happy Makeup, uma loja de maquiagem em Salvador, Bahia. Gestão de produtos em tempo real, autenticação segura com JWT e relatórios analíticos para suporte à decisão.',
+    status: 'archived',
+    size: 'standard',
+    stack: ['React', 'Tailwind CSS', 'Express', 'MongoDB', 'JWT', 'Material-UI'],
+    tags: ['Full-stack', 'Produto', 'Primeiro Projeto'],
+    previewColor:
+      'linear-gradient(135deg, #2d0a1e 0%, #7c1f4a 40%, #c2185b 70%, #e91e8c 100%)',
+    githubUrl: 'https://github.com/victormssa',
+    liveUrl: 'https://devvictoralves.vercel.app/work/happymakeup',
+    previewImage: '/assets/imgs/happymakeup.png',
+    highlights: [
+      'Controle de estoque em tempo real com alertas de baixo estoque',
+      'Autenticação segura com JWT e controle de acesso por função',
+      'Relatórios de inventário, tendências de venda e performance de produtos',
+      'Dashboard intuitivo com métricas-chave para operação diária',
+    ],
+    metrics: [
+      { label: 'Stack', value: 'MERN' },
+      { label: 'Função', value: 'Front-end' },
+      { label: 'Tipo', value: 'Profissional' },
+    ],
+    year: '2024',
+  },
+
+  {
+    id: 'hermes',
+    title: 'Hermes',
+    tagline: 'Hub de ferramentas para desenvolvedores',
+    description:
+      'Plataforma web colaborativa desenvolvida por estudantes da Unifacs para catalogar e gerenciar ferramentas essenciais de desenvolvimento de software. Foco em simplicidade, velocidade e experiência limpa.',
+    status: 'archived',
+    size: 'standard',
+    stack: ['Next.js', 'React', 'Tailwind CSS'],
+    tags: ['Front-end', 'Acadêmico', 'Colaborativo'],
+    previewColor:
+      'linear-gradient(135deg, #0a1628 0%, #1a3a6e 40%, #2563eb 70%, #60a5fa 100%)',
+    githubUrl: 'https://github.com/victormssa',
+    liveUrl: 'https://devvictoralves.vercel.app/work/hermes',
+    previewImage: '/assets/imgs/hermes.png',
+    highlights: [
+      'Listagem curada de ferramentas com descrições e links',
+      'Sistema de favoritos para organização pessoal de recursos',
+      'Design responsivo adaptado para desktop e mobile',
+      'Interface minimalista com foco na usabilidade',
+    ],
+    metrics: [
+      { label: 'Equipe', value: '9 pessoas' },
+      { label: 'Função', value: 'Developer' },
+      { label: 'Tipo', value: 'Acadêmico' },
+    ],
+    year: '2025',
+  },
+  {
+  id: 'perficont',
+  title: 'Perfi Cont',
+  tagline: 'Plataforma digital de contabilidade escalável',
+  description:
+    'Plataforma contábil desenvolvida pela Sonnen Software para otimizar processos de contabilidade entre contadores e clientes. Controle de acesso por perfil, APIs RESTful, autenticação JWT e design responsivo com foco em segurança e escalabilidade.',
+  status: 'live',
+  size: 'standard',
+  stack: ['Next.js', 'React', 'PostgreSQL', 'Neon', 'Tailwind CSS', 'JWT', 'Figma'],
+  tags: ['Full-stack', 'SaaS', 'Produto Profissional'],
+  previewColor:
+    'linear-gradient(135deg, #0f1e0a 0%, #1a4a1f 40%, #2d7a35 70%, #4caf50 100%)',
+  githubUrl: '',
+  liveUrl: 'https://www.perficont.com.br',
+  previewImage: '/assets/imgs/perficont.png',
+  highlights: [
+    'Controle de acesso dinâmico por perfil: admin, contador e cliente',
+    'APIs RESTful integrando front-end com PostgreSQL via Neon',
+    'Autenticação e autorização seguras com JWT',
+    'Protótipo e design de interface no Figma com Tailwind CSS',
+  ],
+  metrics: [
+    { label: 'Empresa', value: 'Sonnen' },
+    { label: 'Função', value: 'Full-stack' },
+    { label: 'DB', value: 'PostgreSQL' },
+  ],
+  year: '2025',
+},
 ]
 
 /* ─────────────────────────────────────────────────────────────
