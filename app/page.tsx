@@ -109,7 +109,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Executive Dashboard ──────────────────────────── */}
+        {/* ── Executive Dashboard ──────────────────────────── 
         <section
           id="dashboard"
           data-section="dashboard"
@@ -123,10 +123,10 @@ export default function Home() {
               description="Dados ao vivo do GitHub, projetos entregues e progressão técnica — atualizados via ISR."
             />
             <Suspense fallback={<DashboardSkeleton />}>
-              <DashboardServer /> {/* ← era <Dashboard />, sem dados */}
+              <DashboardServer /> 
             </Suspense>
           </div>
-        </section>
+        </section>*/}
 
         {/* ── AI Terminal ──────────────────────────────────── 
         <section
