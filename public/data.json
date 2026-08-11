@@ -1,0 +1,149 @@
+{
+  "$schema": "curriculo-dados-v1",
+  "_meta": {
+    "descricao": "Dados extraídos dos componentes do portfólio (IdentityCard, IdentityComplement, Footer, read.txt) para alimentar um gerador de currículo. Campos vazios/null indicam informação não encontrada no código-fonte, aguardando complemento do usuário.",
+    "fontes": [
+      "IdentityCard.tsx",
+      "IndetityComplement.tsx",
+      "Footer.tsx",
+      "read.txt",
+      "globals.css",
+      "layout.tsx",
+      "page.tsx"
+    ]
+  },
+
+  "identificacao": {
+    "nome_exibicao": "Victor M.S.S. Alves",
+    "nome_completo": "Victor Manoel Soares Silva Alves",
+    "nome_completo_fonte": "layout.tsx (metadata.authors)",
+    "cargo_titulo": "Frontend Engineer",
+    "cargo_alternativo": "Frontend Developer",
+    "bio_curta_seo": "Frontend Developer especializado em interfaces premium, acessíveis e orientadas ao produto. React, TypeScript, Next.js, da ideia ao deploy.",
+    "localizacao": {
+      "cidade": "Salvador",
+      "estado": "Bahia",
+      "pais": "Brasil",
+      "sigla": "Salvador, BA — BR",
+      "timezone": "BRT (UTC-3)"
+    },
+    "resumo_foco": "Interfaces responsivas, acessibilidade e performance.",
+    "tagline": "Construindo interfaces premium, acessíveis e orientadas ao produto, da ideia ao deploy.",
+    "status_disponibilidade": {
+      "disponivel": true,
+      "texto": "Disponível para oportunidades",
+      "modalidades_aceitas": ["CLT", "PJ", "Freelance"],
+      "proxima_disponibilidade_label": "Próxima disponibilidade: em 3 dias",
+      "observacao": "Data de disponibilidade é gerada dinamicamente (mock: hoje + 3 dias) — não é um dado fixo real."
+    },
+    "perfil_comportamental": {
+      "mbti": "INTJ-A",
+      "descricao": "Arquiteto, estratégico e introvertido"
+    },
+    "narrativa_carreira": "Trajetória de atendimento ao público para engenharia de interfaces (mencionado na seção Timeline/page.tsx) — reforça o ponto forte 'Design thinking técnico' já registrado em pontos_fortes.",
+    "palavras_chave_seo": [
+      "Frontend Developer",
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "UI/UX",
+      "Acessibilidade",
+      "Salvador Bahia"
+    ]
+  },
+
+  "contato": {
+    "email": "contato@victormssalves.com",
+    "github": {
+      "usuario": "@gitvictoralves",
+      "url": "https://github.com/gitvictoralves"
+    },
+    "linkedin": {
+      "usuario": "victormssalves",
+      "url": "https://linkedin.com/in/victormssalves"
+    },
+    "telefone": null,
+    "site_portfolio": "https://victormssalves.com",
+    "twitter_x": "@victormssalves"
+  },
+
+  "idiomas": [
+    { "idioma": "Português", "nivel": "Nativo" },
+    { "idioma": "Inglês", "nivel": "B1", "certificado": true, "carga_horaria": "528h" }
+  ],
+
+  "habilidades_tecnicas": {
+    "core_dominante": [
+      { "categoria": "HTML5", "detalhe": "Semântico" },
+      { "categoria": "CSS3", "detalhe": "Flexbox, Grid, Media Queries, responsividade" },
+      { "categoria": "JavaScript ES6+", "detalhe": "Arrow functions, destructuring, async/await, módulos" },
+      { "categoria": "React.js", "detalhe": "Componentes funcionais, hooks, props, estado" },
+      { "categoria": "Git / GitHub", "detalhe": "Versionamento, branches, pull requests" }
+    ],
+    "em_aprendizado_ativo": [
+      { "categoria": "TypeScript", "detalhe": "Tipagem básica, interfaces, tipos utilitários" },
+      { "categoria": "Next.js", "detalhe": "Roteamento, SSR, SSG" },
+      { "categoria": "Tailwind CSS", "detalhe": null },
+      { "categoria": "Consumo de REST APIs", "detalhe": "Fetch" },
+      { "categoria": "Axios", "detalhe": "Consumo de REST APIs (item separado, conforme observação do usuário)" },
+      { "categoria": "Testes", "detalhe": "Jest e Testing Library" }
+    ],
+    "ferramentas_ambiente": [
+      { "categoria": "VS Code", "detalhe": null },
+      { "categoria": "GitHub Copilot", "detalhe": "Uso de IA no fluxo de desenvolvimento" },
+      { "categoria": "Claude", "detalhe": "Uso de IA no fluxo de desenvolvimento" },
+      { "categoria": "Figma", "detalhe": "Leitura e interpretação de layouts" }
+    ],
+    "metodologias_ageis": [
+      { "categoria": "Scrum", "detalhe": "Noções práticas (item separado, conforme observação do usuário)" },
+      { "categoria": "Kanban", "detalhe": "Noções práticas (item separado, conforme observação do usuário)" }
+    ],
+    "stack_resumo_curto": ["React", "Next.js", "TypeScript", "Tailwind"]
+  },
+
+  "estatisticas": [
+    { "valor": "3+", "label": "Anos estudando" },
+    { "valor": "3+", "label": "Projetos em produção" },
+    { "valor": "528h", "label": "Inglês certificado" },
+    { "valor": "100%", "label": "Commits convencionais" }
+  ],
+
+  "pontos_fortes": [
+    {
+      "titulo": "Código que comunica",
+      "descricao": "Escreve componentes que outros devs entendem na primeira leitura, nomenclatura intencional, tipagem estrita, sem mágica desnecessária."
+    },
+    {
+      "titulo": "Design thinking técnico",
+      "descricao": "Vem do atendimento ao público. Traduz necessidades reais em interfaces que as pessoas realmente usam, com empatia e precisão."
+    },
+    {
+      "titulo": "Disponível agora",
+      "descricao": "Aberto para oportunidades CLT, PJ ou freelance. Entrega com consistência e comunica com clareza desde o primeiro dia."
+    }
+  ],
+
+  "experiencia_profissional": [],
+  "formacao_academica": [],
+  "cursos_certificacoes": [],
+  "projetos": [],
+
+  "redes_sociais_extra": {
+    "observacao": "Extraído do Footer.tsx — mesmos links de contato, com labels de exibição diferentes",
+    "links": [
+      { "label": "GitHub", "username_exibido": "@gitvictoralves", "url": "https://github.com/gitvictoralves" },
+      { "label": "LinkedIn", "username_exibido": "victormssalves", "url": "https://linkedin.com/in/victormssalves" },
+      { "label": "E-mail", "username_exibido": "contato@victormssalves.com", "url": "mailto:contato@victormssalves.com" }
+    ]
+  },
+
+  "pendencias_para_usuario": [
+    "Experiência profissional (cargos, empresas, datas, descrições)",
+    "Formação acadêmica (curso, instituição, período, status)",
+    "Cursos e certificações específicas (nomes, instituições, cargas horárias, datas)",
+    "Projetos detalhados (nome, descrição, stack usada, link — não estavam no código analisado, apenas o componente ProjectsGalaxy.tsx que não continha dados textuais extraíveis diretamente)",
+    "Telefone de contato (opcional)",
+    "Confirmar se 'anos estudando' / 'projetos em produção' devem virar texto de resumo no currículo ou ficar só como destaque visual"
+  ]
+}

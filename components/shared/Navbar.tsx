@@ -11,6 +11,7 @@ import {
   useReducedMotion,
 } from 'motion/react'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
+import CurriculoDownloadButton from '../sections/CurriculoDownloadButton'
 
 /* ─────────────────────────────────────────────────────────────
    TYPES & CONFIG
@@ -516,6 +517,7 @@ function MobileMenu({
                   </motion.a>
                 )
               })}
+              
             </nav>
 
             {/* Divider */}
@@ -654,6 +656,7 @@ export function Navbar() {
             />
 
             <CTAButton />
+            <CurriculoDownloadButton/>
           </div>
 
           {/* Mobile hamburger */}
