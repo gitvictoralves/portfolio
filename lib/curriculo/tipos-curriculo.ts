@@ -47,7 +47,6 @@ export interface IdiomaItem {
 
 export interface CurriculoData {
   nomeCompleto: string;
-  /** Headline específico: cargo + força principal, nunca "Software Engineer" genérico */
   headline: string;
   localizacao: string;
   disponibilidade?: string;
@@ -60,6 +59,10 @@ export interface CurriculoData {
   };
   /** 2–3 linhas de resumo, sem enfeites, com palavras-chave da área */
   resumo: string;
+  /** Faixa curta com 3-4 números fortes, exibida logo abaixo do headline
+   *  (ex.: "4 projetos em produção", "Lighthouse 98+"). Opcional — se
+   *  omitido, a seção de destaques simplesmente não é renderizada. */
+  destaques?: string[];
   stack: GrupoHabilidades[];
   experiencia: ExperienciaItem[];
   projetos: ProjetoItem[];
