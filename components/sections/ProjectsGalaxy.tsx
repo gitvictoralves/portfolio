@@ -51,6 +51,34 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    id: 'conta-ativo',
+    title: 'Conta Ativo',
+    tagline: 'Gestão financeira e operacional multi-tenant',
+    description:
+      'Plataforma SaaS de gestão financeira e operacional multi-tenant, com controle de acesso por papel (Dono, Gerente, Financeiro, Operador, Leitura), cadastro de clientes e empresas, lançamentos financeiros, cobrança via PIX/boleto e nota fiscal de serviço integrados ao Asaas, além de módulo de estoque com ficha técnica e produção.',
+    status: 'live',
+    size: 'featured',
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Elysia (Bun)', 'MongoDB', 'JWT'],
+    tags: ['Full-stack', 'SaaS', 'Multi-tenant'],
+    previewColor:
+      'linear-gradient(135deg, #0a0e1e 0%, #1c2f6e 40%, #3457d5 70%, #6d8cf0 100%)',
+    githubUrl: '',
+    liveUrl: 'https://www.contaativo.com',
+    previewImage: '/assets/imgs/contaativo.png',
+    highlights: [
+      'Controle de acesso por 5 papéis, refletido em menus e ações da API',
+      'Cobrança PIX/boleto com QR Code e baixa automática via webhook Asaas',
+      'Emissão de nota fiscal de serviço (NFS-e) vinculada à transação',
+      'Módulo de estoque com receitas (BOM), produção e rastreio de lote',
+    ],
+    metrics: [
+      { label: 'Papéis de acesso', value: '5' },
+      { label: 'Backend', value: 'Elysia + Bun' },
+      { label: 'DB', value: 'MongoDB' },
+    ],
+    year: '2026',
+  },
+  {
     id: 'portfolio',
     title: 'Premium Interactive Resume',
     tagline: 'Portfólio como experiência de produto',
@@ -278,11 +306,11 @@ function StatusChip({ status }: { status: ProjectStatus }) {
 
   return (
     <span
-      className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-sm text-xs font-medium"
+      className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-sm text-xs font-medium whitespace-nowrap"
       style={cfg.chipStyle}
     >
       {isLive ? (
-        <span className="relative flex h-1.5 w-1.5">
+        <span className="relative flex h-1.5 w-1.5 shrink-0">
           <span
             className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
             style={{ backgroundColor: cfg.dotColor }}
@@ -294,7 +322,7 @@ function StatusChip({ status }: { status: ProjectStatus }) {
         </span>
       ) : (
         <span
-          className="h-1.5 w-1.5 rounded-full"
+          className="h-1.5 w-1.5 rounded-full shrink-0"
           style={{ backgroundColor: cfg.dotColor }}
         />
       )}
@@ -310,7 +338,7 @@ function StatusChip({ status }: { status: ProjectStatus }) {
 function StackBadge({ label }: { label: string }) {
   return (
     <span
-      className="px-2 py-0.5 rounded-sm text-xs font-medium border"
+      className="px-2 py-0.5 rounded-sm text-xs font-medium border whitespace-nowrap"
       style={{
         background: 'rgb(79 53 214 / 0.12)',
         color: 'var(--color-accent-300)',
@@ -324,19 +352,19 @@ function StackBadge({ label }: { label: string }) {
 
 /* ─────────────────────────────────────────────────────────────
    SUB-COMPONENT — Project preview (gradient placeholder)
+   height agora aceita classes responsivas (ex: "h-[140px] sm:h-[180px]")
 ───────────────────────────────────────────────────────────── */
 
 function ProjectPreview({
   project,
-  height = 180,
+  heightClassName = 'h-[180px]',
 }: {
   project: Project
-  height?: number
+  heightClassName?: string
 }) {
   return (
     <div
-      className="relative w-full rounded-lg overflow-hidden"
-      style={{ height }}
+      className={`relative w-full rounded-lg overflow-hidden ${heightClassName}`}
       aria-hidden="true"
     >
       {project.previewImage ? (
@@ -413,7 +441,7 @@ function ProjectDetail({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={shouldReduce ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.97 }}
         transition={{ duration: 0.35, ease: [0, 0, 0.2, 1] }}
-        className="fixed inset-x-4 bottom-0 z-50 glass-3 rounded-t-2xl overflow-y-auto md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl md:rounded-2xl"
+        className="fixed inset-x-0 bottom-0 z-50 glass-3 overflow-y-auto rounded-t-2xl sm:inset-x-4 md:inset-auto md:left-1/2 md:top-1/2 md:w-[calc(100%-2rem)] md:max-w-2xl md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-2xl"
         style={{
           maxHeight: '90vh',
           boxShadow: 'var(--glow-accent), var(--shadow-lg)',
@@ -430,15 +458,15 @@ function ProjectDetail({
         />
 
         {/* Preview */}
-        <ProjectPreview project={project} height={200} />
+        <ProjectPreview project={project} heightClassName="h-[160px] sm:h-[200px]" />
 
-        <div className="p-6 flex flex-col gap-5">
+        <div className="flex flex-col gap-5 p-4 sm:p-6">
           {/* Header */}
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1 min-w-0">
               <StatusChip status={project.status} />
               <h3
-                className="text-gradient text-xl font-semibold leading-tight mt-2"
+                className="text-gradient text-lg sm:text-xl font-semibold leading-tight mt-2 break-words"
               >
                 {project.title}
               </h3>
@@ -452,7 +480,7 @@ function ProjectDetail({
             <button
               onClick={onClose}
               aria-label="Fechar painel de detalhes"
-              className="p-2 rounded-lg transition-all duration-150 hover:bg-white/8"
+              className="p-2 rounded-lg transition-all duration-150 hover:bg-white/8 shrink-0"
               style={{ color: 'var(--color-neutral-400)' }}
             >
               <X size={16} strokeWidth={1.5} />
@@ -498,20 +526,20 @@ function ProjectDetail({
 
           {/* Metrics */}
           {project.metrics && (
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {project.metrics.map((m) => (
                 <div
                   key={m.label}
-                  className="glass-1 rounded-lg p-3 text-center"
+                  className="glass-1 rounded-lg p-2 sm:p-3 text-center min-w-0"
                 >
                   <p
-                    className="text-base font-semibold"
+                    className="text-sm sm:text-base font-semibold break-words"
                     style={{ color: 'var(--color-neutral-50)' }}
                   >
                     {m.value}
                   </p>
                   <p
-                    className="text-xs mt-0.5"
+                    className="text-[11px] sm:text-xs mt-0.5 break-words"
                     style={{ color: 'var(--color-neutral-400)' }}
                   >
                     {m.label}
@@ -553,7 +581,7 @@ function ProjectDetail({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-medium transition-all duration-150"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-md text-sm font-medium transition-all duration-150"
                 style={{
                   background: 'var(--color-accent-500)',
                   color: '#fff',
@@ -571,7 +599,7 @@ function ProjectDetail({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-medium border transition-all duration-150"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-md text-sm font-medium border transition-all duration-150"
                 style={{
                   background: 'rgb(255 255 255 / 0.05)',
                   borderColor: 'rgb(255 255 255 / 0.10)',
@@ -613,7 +641,7 @@ function FeaturedCard({
       initial={shouldReduce ? { opacity: 0 } : { opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, ease: [0, 0, 0.2, 1], delay: index * 0.1 }}
-      className="col-span-2 group"
+      className="col-span-1 sm:col-span-2 group"
     >
       <button
         onClick={() => onOpen(project)}
@@ -637,7 +665,7 @@ function FeaturedCard({
       >
         {/* Preview image area */}
         <div className="relative overflow-hidden">
-          <ProjectPreview project={project} height={260} />
+          <ProjectPreview project={project} heightClassName="h-[180px] sm:h-[220px] lg:h-[260px]" />
           {/* Hover overlay */}
           <div
             className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -658,12 +686,12 @@ function FeaturedCard({
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <div className="flex items-start justify-between gap-4 mb-3">
             <div className="flex flex-wrap items-center gap-2">
               <StatusChip status={project.status} />
               <span
-                className="px-2 py-0.5 rounded-sm text-xs font-medium border"
+                className="px-2 py-0.5 rounded-sm text-xs font-medium border whitespace-nowrap"
                 style={{
                   background: 'rgb(79 53 214 / 0.08)',
                   color: 'var(--color-accent-400)',
@@ -684,7 +712,7 @@ function FeaturedCard({
           </div>
 
           <h3
-            className="text-gradient text-xl font-semibold leading-tight mb-1"
+            className="text-gradient text-lg sm:text-xl font-semibold leading-tight mb-1 break-words"
           >
             {project.title}
           </h3>
@@ -766,9 +794,9 @@ function StandardCard({
           el.style.background = 'rgb(255 255 255 / 0.05)'
         }}
       >
-        <ProjectPreview project={project} height={140} />
+        <ProjectPreview project={project} heightClassName="h-[120px] sm:h-[140px]" />
 
-        <div className="p-5">
+        <div className="p-4 sm:p-5">
           <div className="flex items-center justify-between gap-2 mb-3">
             <StatusChip status={project.status} />
             <ArrowUpRight
@@ -781,7 +809,7 @@ function StandardCard({
           </div>
 
           <h3
-            className="text-base font-semibold leading-tight mb-1"
+            className="text-base font-semibold leading-tight mb-1 break-words"
             style={{ color: 'var(--color-neutral-100)' }}
           >
             {project.title}
@@ -839,7 +867,7 @@ function CompactCard({
       <button
         onClick={() => onOpen(project)}
         aria-label={`Abrir detalhes do projeto ${project.title}`}
-        className="w-full text-left group flex items-center gap-4 px-4 py-3.5 rounded-lg border transition-all duration-150"
+        className="w-full text-left group flex items-center gap-3 sm:gap-4 px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg border transition-all duration-150"
         style={{
           background: 'rgb(255 255 255 / 0.03)',
           borderColor: 'rgb(255 255 255 / 0.06)',
@@ -857,7 +885,7 @@ function CompactCard({
       >
         {/* Preview swatch */}
         <div
-          className="flex-shrink-0 w-10 h-10 rounded-md"
+          className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-md"
           style={{ background: project.previewColor }}
           aria-hidden="true"
         />
@@ -877,10 +905,10 @@ function CompactCard({
           </p>
         </div>
 
-        <div className="flex-shrink-0 flex items-center gap-3">
+        <div className="flex-shrink-0 flex items-center gap-2 sm:gap-3">
           <StatusChip status={project.status} />
           <span
-            className="text-xs"
+            className="hidden sm:inline text-xs"
             style={{ color: 'var(--color-neutral-400)' }}
           >
             {project.year}
@@ -889,7 +917,7 @@ function CompactCard({
             size={13}
             strokeWidth={1.5}
             aria-hidden="true"
-            className="opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-150"
+            className="hidden sm:block opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-150"
             style={{ color: 'var(--color-neutral-400)' }}
           />
         </div>
@@ -929,7 +957,7 @@ export function ProjectsGalaxy() {
     <>
       {/* Filter bar */}
       <div
-        className="flex flex-wrap gap-2 mb-10"
+        className="flex flex-wrap gap-2 mb-8 sm:mb-10"
         role="group"
         aria-label="Filtrar projetos por categoria"
       >
@@ -938,7 +966,7 @@ export function ProjectsGalaxy() {
             key={tag}
             onClick={() => setFilter(tag)}
             aria-pressed={filter === tag}
-            className="rounded-md px-3 py-1.5 text-xs font-medium transition-all duration-150"
+            className="rounded-md px-3 py-1.5 text-xs font-medium transition-all duration-150 whitespace-nowrap"
             style={{
               background:
                 filter === tag
@@ -959,9 +987,9 @@ export function ProjectsGalaxy() {
         ))}
       </div>
 
-      {/* Grid — featured (2-col span) + standard */}
+      {/* Grid — featured (span completo em sm+) + standard, 3 colunas em telas grandes */}
       {(featured.length > 0 || standard.length > 0) && (
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 mb-5">
           {featured.map((p, i) => (
             <FeaturedCard key={p.id} project={p} index={i} onOpen={handleOpen} />
           ))}
@@ -991,7 +1019,7 @@ export function ProjectsGalaxy() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="glass-1 rounded-xl p-12 text-center"
+          className="glass-1 rounded-xl p-8 sm:p-12 text-center"
         >
           <Layers
             size={32}
