@@ -12,6 +12,12 @@
 //   - Scrum e Kanban ficaram fora de "stack" e viraram "metodologias",
 //     como você pediu no read.txt.
 //   - Axios ficou separado de "REST APIs", também como pedido no read.txt.
+//   - Adicionei a categoria "Lógica & Backend (em estudo)" e os itens
+//     IntelliJ IDEA / Visual Studio em "Ferramentas & Fluxo", espelhando
+//     as tecnologias acrescentadas no TechOrbit para a vaga de
+//     Desenvolvedor I (POO, SQL, Java, C#, Spring Boot, .NET Core).
+//     Os níveis reais desses itens ainda são iniciais — reveja antes de
+//     usar este arquivo numa candidatura formal.
 
 import type { CurriculoData } from "./tipos-curriculo";
 
@@ -30,7 +36,7 @@ export const dadosCurriculo: CurriculoData = {
   },
 
   resumo:
-    "Desenvolvedor Front-end focado em interfaces responsivas, acessíveis e orientadas ao produto, com base sólida em HTML5, CSS3, JavaScript ES6+ e React, e evolução ativa em TypeScript e Next.js. Vem do atendimento ao público, o que se traduz em comunicação objetiva, atenção a detalhes e foco na experiência real de quem usa o sistema. Mantém rotina de estudo consistente há mais de 3 anos, com projetos reais publicados em produção.",
+    "Desenvolvedor Front-end focado em interfaces responsivas, acessíveis e orientadas ao produto, com base sólida em HTML5, CSS3, JavaScript ES6+ e React, e evolução ativa em TypeScript e Next.js. Em paralelo, iniciando estudo de lógica orientada a objetos, banco de dados relacional e das linguagens Java e C#, para atuar também em manutenção e desenvolvimento back-end. Vem do atendimento ao público, o que se traduz em comunicação objetiva, atenção a detalhes e foco na experiência real de quem usa o sistema. Mantém rotina de estudo consistente há mais de 3 anos, com projetos reais publicados em produção.",
 
   stack: [
     {
@@ -50,6 +56,16 @@ export const dadosCurriculo: CurriculoData = {
       itens: ["REST APIs (fetch)", "Axios"],
     },
     {
+      categoria: "Backend",
+      itens: [
+        "SQL (SQL Server, PostgreSQL, MySQL)",
+        "Java",
+        "C#",
+        "Spring Boot",
+        ".NET Core",
+      ],
+    },
+    {
       categoria: "Testes",
       itens: ["Jest", "Testing Library"],
     },
@@ -59,6 +75,8 @@ export const dadosCurriculo: CurriculoData = {
         "Git",
         "GitHub",
         "VS Code",
+        "IntelliJ IDEA",
+        "Visual Studio",
         "Figma",
         "GitHub Copilot",
         "Claude (IA no fluxo de dev)",

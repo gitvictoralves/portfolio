@@ -16,9 +16,15 @@ import {
   SiJest,
   SiAxios,
   SiClaude,
+  SiMysql,
+  SiSpringboot,
+  SiDotnet,
+  SiIntellijidea,
+  SiOpenjdk,
 } from "@icons-pack/react-simple-icons";
 import { SiGithubcopilot, SiTestinglibrary } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
+import { TbBrandCSharp, TbBrandVisualStudio } from "react-icons/tb";
 import {
   KanbanSquare,
   RefreshCw,
@@ -28,6 +34,8 @@ import {
   Play,
   ChevronDown,
   ChevronUp,
+  Boxes,
+  Database,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────
@@ -274,6 +282,77 @@ const TECHS: Tech[] = [
       <SiTestinglibrary size={size} style={{ color }} />
     ),
   },
+  // LEARNING — requisitos da vaga (Desenvolvedor I / IEL)
+  {
+    id: "oop",
+    name: "POO",
+    brandColor: "#8B5CF6",
+    tier: "learning",
+    category: "methodology",
+    description:
+      "Encapsulamento, herança, polimorfismo e abstração aplicados ao design de classes.",
+    since: "2026",
+    proficiency: 40,
+    Icon: ({ size, color }) => <Boxes size={size} color={color} />,
+  },
+  {
+    id: "sql",
+    name: "SQL",
+    brandColor: "#4479A1",
+    tier: "learning",
+    category: "scripting",
+    description:
+      "Consultas, joins e modelagem básica de dados relacionais (SQL Server, PostgreSQL, MySQL).",
+    since: "2026",
+    proficiency: 35,
+    Icon: ({ size, color }) => <Database size={size} color={color} />,
+  },
+  {
+    id: "java",
+    name: "Java",
+    brandColor: "#f89820",
+    tier: "learning",
+    category: "scripting",
+    description:
+      "Sintaxe orientada a objetos, coleções e primeiros projetos de console/API.",
+    since: "2026",
+    proficiency: 30,
+    Icon: ({ size, color }) => <SiOpenjdk size={size} style={{ color }} />,
+  },
+  {
+    id: "csharp",
+    name: "C#",
+    brandColor: "#9B4F96",
+    tier: "learning",
+    category: "scripting",
+    description:
+      "Tipagem estática e sintaxe orientada a objetos como base para .NET Core.",
+    since: "2026",
+    proficiency: 25,
+    Icon: ({ size, color }) => <TbBrandCSharp size={size} color={color} />,
+  },
+  {
+    id: "springboot",
+    name: "Spring Boot",
+    brandColor: "#6DB33F",
+    tier: "learning",
+    category: "framework",
+    description: "Estrutura de APIs REST em Java com injeção de dependência.",
+    since: "2026",
+    proficiency: 20,
+    Icon: ({ size, color }) => <SiSpringboot size={size} style={{ color }} />,
+  },
+  {
+    id: "dotnet",
+    name: ".NET Core",
+    brandColor: "#512BD4",
+    tier: "learning",
+    category: "framework",
+    description: "Framework multiplataforma da Microsoft para APIs REST em C#.",
+    since: "2026",
+    proficiency: 20,
+    Icon: ({ size, color }) => <SiDotnet size={size} style={{ color }} />,
+  },
   // TOOLS
   {
     id: "vscode",
@@ -348,6 +427,30 @@ const TECHS: Tech[] = [
     since: "2023",
     proficiency: 55,
     Icon: ({ size, color }) => <KanbanSquare size={size} color={color} />,
+  },
+  // TOOLS — desejáveis da vaga (Desenvolvedor I / IEL)
+  {
+    id: "intellij",
+    name: "IntelliJ IDEA",
+    brandColor: "#000000",
+    tier: "tools",
+    category: "tooling",
+    description:
+      "IDE para desenvolvimento Java com refatoração e debug integrados.",
+    since: "2026",
+    proficiency: 25,
+    Icon: ({ size, color }) => <SiIntellijidea size={size} style={{ color }} />,
+  },
+  {
+    id: "visualstudio",
+    name: "Visual Studio",
+    brandColor: "#5C2D91",
+    tier: "tools",
+    category: "tooling",
+    description: "IDE da Microsoft para desenvolvimento em C# e .NET.",
+    since: "2026",
+    proficiency: 25,
+    Icon: ({ size, color }) => <TbBrandVisualStudio size={size} style={{ color }} />,
   },
 ];
 
@@ -817,10 +920,11 @@ function TechRowList({
   selected: Tech | null;
   onSelect: (tech: Tech | null) => void;
 }) {
+  // Começam fechados: só expande quando o usuário clicar no cabeçalho.
   const [expanded, setExpanded] = useState<Record<Tier, boolean>>({
-    core: true,
-    learning: true,
-    tools: true,
+    core: false,
+    learning: false,
+    tools: false,
   });
 
   const toggle = (tier: Tier) =>
@@ -1115,7 +1219,7 @@ function Legend({
 }
 
 /* ─────────────────────────────────────────────────────────────
-   MAIN COMPONENT — TechOrbit v2.0
+   MAIN COMPONENT — TechOrbit v2.1
 ───────────────────────────────────────────────────────────── */
 
 export function TechOrbit() {
