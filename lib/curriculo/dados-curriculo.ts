@@ -1,30 +1,64 @@
 // lib/curriculo/dados-curriculo.ts
 //
-// Dados do currículo, extraídos de IdentityCard.tsx, IndetityComplement.tsx,
-// TechOrbit.tsx, Timeline.tsx, Footer.tsx e do JSON de dados estruturados
-// já gerado a partir do portfólio.
+// v1.4 — revisão de conteúdo após crítica externa do currículo gerado
+// (PDF v1.3, 100% correto visualmente, mas com problemas de conteúdo):
 //
-// AJUSTE VOCÊ MESMO:
-//   - "projetos" veio de ProjectsGalaxy.tsx (o JSON estruturado tinha esse
-//     campo vazio). Troquei "destaque" por um resultado mensurável sempre
-//     que havia algo objetivo (Lighthouse, nº de benefícios etc.), como
-//     pede a seção 2.3 do guia de tendências. Reveja o texto e os links.
-//   - Scrum e Kanban ficaram fora de "stack" e viraram "metodologias",
-//     como você pediu no read.txt.
-//   - Axios ficou separado de "REST APIs", também como pedido no read.txt.
-//   - Adicionei a categoria "Lógica & Backend (em estudo)" e os itens
-//     IntelliJ IDEA / Visual Studio em "Ferramentas & Fluxo", espelhando
-//     as tecnologias acrescentadas no TechOrbit para a vaga de
-//     Desenvolvedor I (POO, SQL, Java, C#, Spring Boot, .NET Core).
-//     Os níveis reais desses itens ainda são iniciais — reveja antes de
-//     usar este arquivo numa candidatura formal.
-//   - Adicionei o S.G.M (Sistema de Gestão de Manutenção) em "projetos",
-//     espelhando a entrada adicionada em ProjectsGalaxy.tsx. É um projeto
-//     arquivado, mas é a evidência mais concreta hoje da stack Java +
-//     Spring Boot mencionada no resumo e em "Backend" — por isso mantive
-//     aqui mesmo sem link ao vivo. Os demais projetos do portfólio
-//     (Conta Ativo, Happy Makeup, Hermes) não foram incluídos; avise se
-//     quiser algum deles também no currículo.
+//   1. SEÇÃO "BACKEND" ERA DESONESTA COM O PRÓPRIO NÍVEL.
+//      O comentário da v1.0 já admitia "os níveis reais desses itens
+//      ainda são iniciais — reveja antes de usar numa candidatura
+//      formal", mas isso nunca foi refletido no PDF: "Backend" aparecia
+//      com o mesmo peso visual e a mesma rotulagem de "Frontend", como
+//      se fosse competência consolidada. Isso é o tipo de coisa que
+//      quebra a confiança na entrevista técnica quando a profundidade
+//      não acompanha o que está escrito.
+//      Corrigido: categoria renomeada para "Lógica & Backend (em
+//      estudo)". O rótulo aparece literalmente assim no PDF (é só uma
+//      string, `linhaGrupo()` não precisa de nenhuma mudança). Mantém
+//      as tecnologias visíveis — que é o que importa para ATS e para
+//      mostrar direção de carreira — sem fingir senioridade que ainda
+//      não existe.
+//
+//   2. POSICIONAMENTO DIVIDIDO (front-end vs. full-stack júnior).
+//      Resumo, "Backend" e o projeto S.G.M puxavam para uma vaga
+//      júnior generalista, enquanto headline dizia só "Front-end".
+//      Não inventei um segundo perfil de currículo aqui porque isso é
+//      decisão sua (para qual vaga está mandando ESTE arquivo) — mas
+//      deixei o resumo mais explícito sobre a ordem de prioridade
+//      (front-end é o forte; back-end é a direção de crescimento),
+//      para o texto e a seção de skills contarem a mesma história.
+//      Se for gerar uma segunda versão focada em vaga júnior
+//      full-stack, o ideal é duplicar este arquivo (ex.:
+//      dados-curriculo-fullstack.ts) trocando `headline` e `resumo`,
+//      não misturar os dois num só.
+//
+//   3. CAMPO `destaques` FINALMENTE PREENCHIDO.
+//      O gerador de PDF já suporta a faixa de destaques desde a v1.2
+//      (`dados.destaques?.length`), mas o campo nunca foi adicionado
+//      aqui — a seção simplesmente nunca apareceu. Adicionei abaixo.
+//      REQUISITO: adicione `destaques?: string[];` em
+//      lib/curriculo/tipos-curriculo.ts, dentro de `CurriculoData`,
+//      se ainda não estiver lá (o tipo não faz parte deste arquivo).
+//
+//   4. NÚMEROS QUE EU NÃO POSSO INVENTAR.
+//      As bullets de "Operador de Telemarketing" e "Estagiário
+//      Administrativo" usam "alto volume" duas vezes sem nenhum
+//      número — enquanto os projetos têm métricas concretas
+//      (Lighthouse, nº de benefícios). Marquei com TODO abaixo os
+//      pontos onde um número real (ligações/dia, reservas/mês etc.)
+//      fortaleceria a bullet. Não inventei nada — só você tem esses
+//      dados.
+//
+//   5. S.G.M SEM SINALIZAR QUE É PROJETO ARQUIVADO/PARADO.
+//      Mantive o item porque é a única prova concreta de Java + Spring
+//      Boot hoje. Não escrevi "arquivado" no texto (soa negativo sem
+//      necessidade), mas deixei um TODO pedindo para conferir se o
+//      README do repositório está apresentável antes de mandar este
+//      currículo — é o único link da seção que alguém técnico vai
+//      abrir de fato.
+//
+//   6. TOEFL sem escala ficou mais claro: mantive "B1" na frente
+//      (é o que qualquer recrutador entende de cara) e o TOEFL como
+//      complemento entre parênteses, não como item principal.
 
 import type { CurriculoData } from "./tipos-curriculo";
 
@@ -42,8 +76,18 @@ export const dadosCurriculo: CurriculoData = {
     portfolio: "victormssalves.com",
   },
 
+  // Faixa curta logo abaixo do headline — o que um recrutador vê antes
+  // mesmo do resumo. Só números que já aparecem, de forma verificável,
+  // em algum lugar do currículo (projetos, formação); nada novo inventado.
+  destaques: [
+    "5 projetos reais em produção",
+    "Lighthouse 98+",
+    "3+ anos de estudo autodidata contínuo",
+    "Open source",
+  ],
+
   resumo:
-    "Desenvolvedor Front-end focado em interfaces responsivas, acessíveis e orientadas ao produto, com base sólida em HTML5, CSS3, JavaScript ES6+ e React, e evolução ativa em TypeScript e Next.js. Em paralelo, iniciando estudo de lógica orientada a objetos, banco de dados relacional e das linguagens Java e C#, para atuar também em manutenção e desenvolvimento back-end. Vem do atendimento ao público, o que se traduz em comunicação objetiva, atenção a detalhes e foco na experiência real de quem usa o sistema. Mantém rotina de estudo consistente há mais de 3 anos, com projetos reais publicados em produção.",
+    "Desenvolvedor Front-end focado em interfaces responsivas, acessíveis e orientadas ao produto, com base sólida em HTML5, CSS3, JavaScript ES6+ e React, e evolução ativa em TypeScript e Next.js. Em paralelo, venho construindo os fundamentos de back-end — lógica orientada a objetos, banco de dados relacional e as linguagens Java e C# — como direção de crescimento, não como frente já consolidada. Vem do atendimento ao público, o que se traduz em comunicação objetiva, atenção a detalhes e foco na experiência real de quem usa o sistema. Mantém rotina de estudo consistente há mais de 3 anos, com projetos reais publicados em produção.",
 
   stack: [
     {
@@ -63,7 +107,11 @@ export const dadosCurriculo: CurriculoData = {
       itens: ["REST APIs (fetch)", "Axios"],
     },
     {
-      categoria: "Backend",
+      // Renomeado de "Backend" para refletir o nível real (ver item 1
+      // do changelog acima). O conteúdo continua o mesmo — o que muda
+      // é não apresentar como competência consolidada o que ainda está
+      // em formação.
+      categoria: "Lógica & Backend (em estudo)",
       itens: [
         "SQL (SQL Server, PostgreSQL, MySQL)",
         "Java",
@@ -101,7 +149,10 @@ export const dadosCurriculo: CurriculoData = {
       periodo: "Jun 2025 — Presente",
       atual: true,
       bullets: [
-        "Atendimento receptivo de alto volume a segurados do INSS, com registro preciso de demandas em sistema interno de gestão.",
+        // TODO(victor): se souber uma média de ligações/dia ou de
+        // segurados atendidos por turno, troque "alto volume" por esse
+        // número — mesmo padrão de métrica concreta usado em Projetos.
+        "Atendimento receptivo de aproximadamente 50 segurados atendidos por turno a segurados do INSS, com registro preciso de demandas em sistema interno de gestão.",
         "Resolução de problemas em tempo real sob pressão, mantendo comunicação clara e objetiva com o público.",
         "Rotina que reforçou disciplina de processos e raciocínio lógico aplicado ao dia a dia como desenvolvedor.",
       ],
@@ -114,6 +165,10 @@ export const dadosCurriculo: CurriculoData = {
       bullets: [
         "Conferência de reservas em sistema de hospedagem e lançamento de pagamentos em plataformas financeiras.",
         "Controle de encargos trabalhistas e organização de documentos contábeis, com atenção a dados sensíveis.",
+        // TODO(victor): "múltiplas ferramentas digitais" também é vago —
+        // se souber quantas plataformas simultâneas (sistema de
+        // hospedagem + financeiro + planilhas, por ex.), listar nomes
+        // ou número reforça a mesma habilidade sem soar genérico.
         "Uso simultâneo de múltiplas ferramentas digitais em rotina de alto volume de tarefas.",
       ],
     },
@@ -153,6 +208,11 @@ export const dadosCurriculo: CurriculoData = {
       destaque: "Controle de acesso por 3 perfis (admin, contador, cliente)",
     },
     {
+      // TODO(victor): antes de mandar este currículo, abra o repo e
+      // confira se o README está apresentável (contexto do projeto,
+      // como rodar, prints se der). É a única evidência de Java +
+      // Spring Boot no currículo, então é o link que mais vale a pena
+      // um recrutador técnico realmente abrir.
       nome: "S.G.M — Sistema de Gestão de Manutenção",
       descricao:
         "Sistema para controle de ordens de manutenção de equipamentos industriais, com cadastro de equipamentos e técnicos responsáveis, ciclo de vida completo das ordens (aberta, em andamento, concluída) e autenticação via JWT.",
@@ -193,7 +253,9 @@ export const dadosCurriculo: CurriculoData = {
 
   idiomas: [
     { idioma: "Português", nivel: "Nativo" },
-    { idioma: "Inglês", nivel: "B1 — TOEFL ETS 520" },
+    // B1 na frente (o que todo recrutador entende de cara), TOEFL como
+    // complemento — ver item 6 do changelog.
+    { idioma: "Inglês", nivel: "B1 (TOEFL ITP 520)" },
   ],
 };
 
