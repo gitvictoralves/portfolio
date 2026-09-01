@@ -162,6 +162,33 @@ const PROJECTS: Project[] = [
     year: '2026',
   },
   {
+    id: 'sgm',
+    title: 'S.G.M',
+    tagline: 'Sistema de gestão de manutenção industrial',
+    description:
+      'Sistema para controle de ordens de manutenção de equipamentos industriais, com cadastro de equipamentos e técnicos responsáveis, abertura e acompanhamento do ciclo de vida de cada ordem de manutenção (aberta, em andamento, concluída) e histórico completo de mudanças de status.',
+    status: 'archived',
+    size: 'featured',
+    stack: ['Java 17', 'Spring Boot', 'Spring Data JPA', 'Spring Security + JWT', 'PostgreSQL', 'Swagger/OpenAPI'],
+    tags: ['Full-stack', 'Backend', 'Industrial'],
+    previewColor:
+      'linear-gradient(135deg, #1a1005 0%, #6b3e0a 40%, #c47a1f 70%, #f0a94a 100%)',
+    githubUrl: 'https://github.com/gitvictoralves/SGM',
+    previewImage: '/assets/imgs/sgm.png',
+    highlights: [
+      'CRUD completo de equipamentos e técnicos responsáveis',
+      'Ciclo de vida de ordens de manutenção: aberta → em andamento → concluída',
+      'Bloqueio de múltiplas ordens abertas simultâneas para o mesmo equipamento',
+      'Autenticação JWT e documentação automática via Swagger',
+    ],
+    metrics: [
+      { label: 'Backend', value: 'Java + Spring' },
+      { label: 'DB', value: 'PostgreSQL' },
+      { label: 'Testes', value: 'JUnit + Mockito' },
+    ],
+    year: '2025',
+  },
+  {
     id: 'happymakeup',
     title: 'Happy Makeup',
     tagline: 'Meu primeiro projeto profissional',
