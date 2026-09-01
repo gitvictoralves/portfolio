@@ -18,6 +18,13 @@
 //     Desenvolvedor I (POO, SQL, Java, C#, Spring Boot, .NET Core).
 //     Os níveis reais desses itens ainda são iniciais — reveja antes de
 //     usar este arquivo numa candidatura formal.
+//   - Adicionei o S.G.M (Sistema de Gestão de Manutenção) em "projetos",
+//     espelhando a entrada adicionada em ProjectsGalaxy.tsx. É um projeto
+//     arquivado, mas é a evidência mais concreta hoje da stack Java +
+//     Spring Boot mencionada no resumo e em "Backend" — por isso mantive
+//     aqui mesmo sem link ao vivo. Os demais projetos do portfólio
+//     (Conta Ativo, Happy Makeup, Hermes) não foram incluídos; avise se
+//     quiser algum deles também no currículo.
 
 import type { CurriculoData } from "./tipos-curriculo";
 
@@ -144,6 +151,14 @@ export const dadosCurriculo: CurriculoData = {
       stack: ["Next.js", "React", "PostgreSQL (Neon)", "JWT", "Tailwind CSS"],
       link: "https://www.perficont.com.br",
       destaque: "Controle de acesso por 3 perfis (admin, contador, cliente)",
+    },
+    {
+      nome: "S.G.M — Sistema de Gestão de Manutenção",
+      descricao:
+        "Sistema para controle de ordens de manutenção de equipamentos industriais, com cadastro de equipamentos e técnicos responsáveis, ciclo de vida completo das ordens (aberta, em andamento, concluída) e autenticação via JWT.",
+      stack: ["Java 17", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Spring Security + JWT"],
+      link: "https://github.com/gitvictoralves/SGM",
+      destaque: "Projeto Java + Spring Boot completo, com testes (JUnit/Mockito) e docs via Swagger",
     },
   ],
 
