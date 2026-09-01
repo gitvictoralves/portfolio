@@ -87,7 +87,7 @@ export const dadosCurriculo: CurriculoData = {
   ],
 
   resumo:
-    "Desenvolvedor Front-end focado em interfaces responsivas, acessíveis e orientadas ao produto, com base sólida em HTML5, CSS3, JavaScript ES6+ e React, e evolução ativa em TypeScript e Next.js. Em paralelo, venho construindo os fundamentos de back-end — lógica orientada a objetos, banco de dados relacional e as linguagens Java e C# — como direção de crescimento, não como frente já consolidada. Vem do atendimento ao público, o que se traduz em comunicação objetiva, atenção a detalhes e foco na experiência real de quem usa o sistema. Mantém rotina de estudo consistente há mais de 3 anos, com projetos reais publicados em produção.",
+    "Desenvolvedor Front-end focado em interfaces humanas, acessíveis e orientadas ao produto, com base sólida em HTML5, CSS3, JavaScript ES6+ e React, e evolução ativa em TypeScript e Next.js. Em paralelo, venho construindo os fundamentos de back-end, lógica orientada a objetos, banco de dados relacional e as linguagens Java e C#, como direção de crescimento. Vem do atendimento ao público, o que se traduz em comunicação objetiva, atenção a detalhes e foco na experiência real de quem usa o sistema. Mantém rotina de estudo consistente há mais de 3 anos.",
 
   stack: [
     {
