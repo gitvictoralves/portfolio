@@ -152,7 +152,7 @@ export const dadosCurriculo: CurriculoData = {
         // TODO(victor): se souber uma média de ligações/dia ou de
         // segurados atendidos por turno, troque "alto volume" por esse
         // número — mesmo padrão de métrica concreta usado em Projetos.
-        "Atendimento receptivo de aproximadamente 50 segurados atendidos por turno a segurados do INSS, com registro preciso de demandas em sistema interno de gestão.",
+        "Atendimento receptivo de aproximadamente 50 segurados atendidos por turno, com registro preciso de demandas em sistema interno de gestão.",
         "Resolução de problemas em tempo real sob pressão, mantendo comunicação clara e objetiva com o público.",
         "Rotina que reforçou disciplina de processos e raciocínio lógico aplicado ao dia a dia como desenvolvedor.",
       ],
@@ -175,6 +175,27 @@ export const dadosCurriculo: CurriculoData = {
   ],
 
   projetos: [
+        {
+      nome: "Conta Ativo",
+      descricao:
+        "Plataforma SaaS de gestão financeira e operacional multi-tenant, com controle de acesso por papel (Dono, Gerente, Financeiro, Operador, Leitura), cadastro de clientes e empresas, lançamentos financeiros, cobrança via PIX/boleto e nota fiscal de serviço integrados ao Asaas, além de módulo de estoque com ficha técnica e produção.",
+      stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Elysia (Bun)", "MongoDB", "JWT"],
+      link: "https://www.contaativo.com",
+      destaque: "Controle de acesso por 5 papéis, cobrança PIX/boleto e NFS-e integrados ao Asaas",
+    },
+       {
+      // TODO(victor): antes de mandar este currículo, abra o repo e
+      // confira se o README está apresentável (contexto do projeto,
+      // como rodar, prints se der). É a única evidência de Java +
+      // Spring Boot no currículo, então é o link que mais vale a pena
+      // um recrutador técnico realmente abrir.
+      nome: "S.G.M — Sistema de Gestão de Manutenção",
+      descricao:
+        "Sistema para controle de ordens de manutenção de equipamentos industriais, com cadastro de equipamentos e técnicos responsáveis, ciclo de vida completo das ordens (aberta, em andamento, concluída) e autenticação via JWT.",
+      stack: ["Java 17", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Spring Security + JWT"],
+      link: "https://github.com/gitvictoralves/SGM",
+      destaque: "Projeto Java + Spring Boot completo, com testes (JUnit/Mockito) e docs via Swagger",
+    },
     {
       nome: "Guia Prev",
       descricao:
@@ -207,19 +228,7 @@ export const dadosCurriculo: CurriculoData = {
       link: "https://www.perficont.com.br",
       destaque: "Controle de acesso por 3 perfis (admin, contador, cliente)",
     },
-    {
-      // TODO(victor): antes de mandar este currículo, abra o repo e
-      // confira se o README está apresentável (contexto do projeto,
-      // como rodar, prints se der). É a única evidência de Java +
-      // Spring Boot no currículo, então é o link que mais vale a pena
-      // um recrutador técnico realmente abrir.
-      nome: "S.G.M — Sistema de Gestão de Manutenção",
-      descricao:
-        "Sistema para controle de ordens de manutenção de equipamentos industriais, com cadastro de equipamentos e técnicos responsáveis, ciclo de vida completo das ordens (aberta, em andamento, concluída) e autenticação via JWT.",
-      stack: ["Java 17", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Spring Security + JWT"],
-      link: "https://github.com/gitvictoralves/SGM",
-      destaque: "Projeto Java + Spring Boot completo, com testes (JUnit/Mockito) e docs via Swagger",
-    },
+ 
   ],
 
   formacao: [
