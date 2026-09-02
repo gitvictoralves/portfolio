@@ -39,7 +39,6 @@ export const dadosCurriculo: CurriculoData = {
         "GitHub",
         "VS Code",
         "IntelliJ IDEA",
-        "Visual Studio",
         "Figma",
         "GitHub Copilot",
         "Claude (IA no fluxo de dev)",
