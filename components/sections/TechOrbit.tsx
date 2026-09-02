@@ -24,7 +24,6 @@ import {
 } from "@icons-pack/react-simple-icons";
 import { SiGithubcopilot, SiTestinglibrary } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
-import { TbBrandCSharp, TbBrandVisualStudio } from "react-icons/tb";
 import {
   KanbanSquare,
   RefreshCw,
@@ -320,18 +319,6 @@ const TECHS: Tech[] = [
     Icon: ({ size, color }) => <SiOpenjdk size={size} style={{ color }} />,
   },
   {
-    id: "csharp",
-    name: "C#",
-    brandColor: "#9B4F96",
-    tier: "learning",
-    category: "scripting",
-    description:
-      "Tipagem estática e sintaxe orientada a objetos como base para .NET Core.",
-    since: "2026",
-    proficiency: 25,
-    Icon: ({ size, color }) => <TbBrandCSharp size={size} color={color} />,
-  },
-  {
     id: "springboot",
     name: "Spring Boot",
     brandColor: "#6DB33F",
@@ -341,17 +328,6 @@ const TECHS: Tech[] = [
     since: "2026",
     proficiency: 20,
     Icon: ({ size, color }) => <SiSpringboot size={size} style={{ color }} />,
-  },
-  {
-    id: "dotnet",
-    name: ".NET Core",
-    brandColor: "#512BD4",
-    tier: "learning",
-    category: "framework",
-    description: "Framework multiplataforma da Microsoft para APIs REST em C#.",
-    since: "2026",
-    proficiency: 20,
-    Icon: ({ size, color }) => <SiDotnet size={size} style={{ color }} />,
   },
   // TOOLS
   {
@@ -440,17 +416,6 @@ const TECHS: Tech[] = [
     since: "2026",
     proficiency: 25,
     Icon: ({ size, color }) => <SiIntellijidea size={size} style={{ color }} />,
-  },
-  {
-    id: "visualstudio",
-    name: "Visual Studio",
-    brandColor: "#5C2D91",
-    tier: "tools",
-    category: "tooling",
-    description: "IDE da Microsoft para desenvolvimento em C# e .NET.",
-    since: "2026",
-    proficiency: 25,
-    Icon: ({ size, color }) => <TbBrandVisualStudio size={size} style={{ color }} />,
   },
 ];
 

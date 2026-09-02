@@ -15,7 +15,7 @@ export const dadosCurriculo: CurriculoData = {
   },
 
   resumo:
-    "Desenvolvedor Front-end com foco em interfaces acessíveis, intuitivas e orientadas ao produto. Experiência com HTML5, CSS3, JavaScript ES6+ e React, em evolução contínua com TypeScript e Next.js. Desenvolvendo conhecimentos em back-end, bancos de dados, orientação a objetos, Java e C#. Experiência em atendimento ao público, com forte comunicação, atenção aos detalhes e foco na experiência do usuário. Mais de 3 anos de estudo e aprimoramento contínuo.",
+    "Desenvolvedor Front-end com foco em interfaces acessíveis, intuitivas e orientadas ao produto. Experiência com HTML5, CSS3, JavaScript ES6+ e React, em evolução contínua com TypeScript e Next.js. Desenvolvendo conhecimentos em back-end, bancos de dados, orientação a objetos e Java . Experiência em atendimento ao público, com forte comunicação, atenção aos detalhes e foco na experiência do usuário. Mais de 3 anos de estudo e aprimoramento contínuo.",
 
   stack: [
     {
@@ -50,9 +50,7 @@ export const dadosCurriculo: CurriculoData = {
       itens: [
         "SQL (SQL Server, PostgreSQL, MySQL)",
         "Java",
-        "C#",
         "Spring Boot",
-        ".NET Core",
       ],
     },
   ],
