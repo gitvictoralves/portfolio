@@ -326,7 +326,7 @@ const nomeArquivo = dados.nomeCompleto
   .replace(/(^-|-$)/g, "");
 
 return { pdf, fileName: `curriculo-${nomeArquivo}.pdf` };
-
+}
 export function gerarPdfCurriculo(
   dados: CurriculoData = dadosCurriculo,
 ): { ok: true; fileName: string } {
