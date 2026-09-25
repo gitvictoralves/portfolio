@@ -2,8 +2,8 @@ import type { CurriculoData } from "./tipos-curriculo";
 
 export const dadosCurriculo: CurriculoData = {
   nomeCompleto: "Victor Manoel Soares Silva Alves",
-  headline: "Desenvolvedor Front-end — React, TypeScript & Next.js",
-  localizacao: "Salvador, Bahia — Brasil (remoto)",
+  headline: "Frontend Developer - React, TypeScript and Next.js",
+  localizacao: "Salvador, Bahia - Brasil (remoto)",
   disponibilidade: "Disponível para oportunidades CLT, PJ ou freelance",
 
   contato: {
@@ -61,7 +61,7 @@ export const dadosCurriculo: CurriculoData = {
       cargo: "Operador de Telemarketing",
       empresa: "Tel Centro de Contatos",
       local: "Salvador, BA",
-      periodo: "Jun 2025 — Presente",
+      periodo: "Jun 2025 - Presente",
       atual: true,
       bullets: [
         "Atendimento receptivo de aproximadamente 50 segurados atendidos por turno, com registro preciso de demandas em sistema interno de gestão.",
@@ -72,7 +72,7 @@ export const dadosCurriculo: CurriculoData = {
       cargo: "Estagiário Administrativo",
       empresa: "Hotel Luar de Itapuã",
       local: "Salvador, BA",
-      periodo: "Fev 2025 — Abr 2025",
+      periodo: "Fev 2025 - Abr 2025",
       bullets: [
         "Conferência de reservas em sistema de hospedagem e lançamento de pagamentos em plataformas financeiras.",
         "Controle de encargos trabalhistas e organização de documentos contábeis, com atenção a dados sensíveis.",
@@ -106,9 +106,9 @@ export const dadosCurriculo: CurriculoData = {
       destaque: "Controle de acesso por 3 perfis (admin, contador, cliente)",
     },
     {
-      nome: "S.G.M — Sistema de Gestão de Manutenção",
+      nome: "S.G.M - Sistema de Gestão de Manutenção",
       descricao:
-        "Sistema de controle de ordens de manutenção industrial (cadastro de equipamentos, ciclo de vida das ordens, autenticação JWT) — projeto de estudo em Java para ganhar profundidade em back-end.",
+        "Sistema de controle de ordens de manutenção industrial (cadastro de equipamentos, ciclo de vida das ordens, autenticação JWT) - projeto de estudo em Java para ganhar profundidade em back-end.",
       stack: ["Java 17", "Spring Boot", "Spring Data JPA", "PostgreSQL"],
       link: "https://github.com/gitvictoralves/SGM",
     },
@@ -119,7 +119,7 @@ export const dadosCurriculo: CurriculoData = {
       titulo: "Desenvolvimento Front-end (formação técnica autodidata)",
       instituicao: "Estudo autodidata",
       local: "Online",
-      periodo: "2024 — Presente",
+      periodo: "2024 - Presente",
       bullets: [
         "HTML5 semântico, CSS3 avançado e JavaScript ES6+.",
         "React com hooks e TypeScript; projetos com deploy em Vercel e GitHub Pages.",
@@ -129,7 +129,7 @@ export const dadosCurriculo: CurriculoData = {
       titulo: "Scholarship Program | Front-end",
       instituicao: "Compass UOL",
       local: "Online",
-      periodo: "Ago 2022 — Dez 2022",
+      periodo: "Ago 2022 - Dez 2022",
       cargaHoraria: "240h",
       bullets: ["Formação intensiva em fundamentos web e boas práticas de desenvolvimento."],
     },
@@ -137,7 +137,7 @@ export const dadosCurriculo: CurriculoData = {
 
   idiomas: [
     { idioma: "Português", nivel: "Nativo" },
-    { idioma: "Inglês", nivel: "B1 (TOEFL ITP 520, CCAA — leitura fluente de documentação técnica)" },
+    { idioma: "Inglês", nivel: "B1 (TOEFL ITP 520, CCAA - leitura fluente de documentação técnica)" },
   ],
 };
 
