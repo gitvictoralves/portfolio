@@ -305,22 +305,27 @@ function construirPdfCurriculo(dados: CurriculoData): ResultadoConstrucaoPdf {
     });
   }
 
-  pdf.setProperties({
-    title: `Currículo — ${dados.nomeCompleto}`,
-    subject: dados.headline,
-    author: dados.nomeCompleto,
-    creator: "gerar-pdf-curriculo.ts (jsPDF)",
-  });
-
-  const nomeArquivo = dados.nomeCompleto
-    .toLowerCase()
+function removerAcentos(texto: string): string {
+  return texto
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-
-  return { pdf, fileName: `curriculo-${nomeArquivo}.pdf` };
+    .replace(/[\u0300-\u036f]/g, "");
 }
+
+pdf.setProperties({
+  title: removerAcentos(`Curriculo - ${dados.nomeCompleto}`),
+  subject: removerAcentos(dados.headline),
+  author: removerAcentos(dados.nomeCompleto),
+  creator: "gerar-pdf-curriculo.ts (jsPDF)",
+});
+
+const nomeArquivo = dados.nomeCompleto
+  .toLowerCase()
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/(^-|-$)/g, "");
+
+return { pdf, fileName: `curriculo-${nomeArquivo}.pdf` };
 
 export function gerarPdfCurriculo(
   dados: CurriculoData = dadosCurriculo,
