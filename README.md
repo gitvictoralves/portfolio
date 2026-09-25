@@ -23,7 +23,7 @@
 
 # ✨ Overview
 
-This project is not just a portfolio.
+This project is not just a portfolio
 
 It was designed as a **next-generation interactive resume experience**, combining:
 - cinematic storytelling,
